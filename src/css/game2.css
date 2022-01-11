@@ -1,0 +1,96 @@
+.game2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+.game2 .drop-zone {
+  position: relative;
+  margin-top: 110px;
+}
+
+.game2 .drop-zone .circle {
+  position: absolute;
+  border-radius: 50%;
+  bottom: 0;
+  pointer-events: none;
+  left: -276.5px;
+  height: 1237px;
+  opacity: 0.2;
+  width: 1237px;
+}
+
+.game2 .verb-half-circle {
+  position: absolute;
+  border: solid #eb6400;
+  z-index: -2;
+  border-radius: 50%;
+  transition-property: width, height, top, left, border-width;
+  transition-timing-function: linear;
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 12px solid transparent;
+  background-size: 100% 100%, 50% 50%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(white, white), linear-gradient(-7deg, #eb6400 80%, #788287 30%), linear-gradient(7deg, #eb6400 35%, #788287 30%);
+  background-position: center center, right bottom, right top;
+  background-origin: content-box, border-box, border-box;
+  background-clip: content-box, border-box, border-box;
+}
+
+.game2 .verb-half-circle .cut {
+  position: absolute;
+  border: solid white;
+  background-color: white;
+  transition-property: width, height, top, left, border-width;
+  transition-timing-function: linear;
+  transform: rotate(-5deg);
+  z-index: 10000000;
+}
+
+.game2 .button {
+  font-size: 25px;
+  background-color: white;
+  color: #788287;
+  width: max-content;
+  font-weight: 700;
+  margin-top: 20px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation-name: buttonShow;
+  animation-duration: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  transition: 0.5s;
+  position: absolute;
+  left: 85vw;
+  top: 500px;
+}
+
+.game2 .button:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+}
+
+@keyframes buttonShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=game2.css.map */

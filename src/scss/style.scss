@@ -1,0 +1,415 @@
+$BACKGROUND_COLOR: #fff;
+$GREEN_COLOR: #a0c814;
+$BROWN_COLOR: #374105;
+$GRAY_COLOR: #788287;
+
+// Menu
+.menu {
+  background-color: $GREEN_COLOR;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000000;
+  transition: 1s;
+  overflow: hidden;
+
+  .top {
+    padding-top: 15vh;
+    transition: 1s;
+
+    p {
+      font-size: 35px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 1s;
+    }
+  }
+
+  .title {
+    color: $BACKGROUND_COLOR;
+    cursor: pointer;
+    width: max-content;
+    text-transform: uppercase;
+    line-height: 60px;
+  }
+
+  .subtitle {
+    color: $BROWN_COLOR;
+    text-transform: uppercase;
+    line-height: 20px;
+  }
+
+  .text {
+    color: $BACKGROUND_COLOR;
+    font-size: 25px;
+    margin-top: 30px;
+    font-weight: 700;
+    transition: 1s;
+  }
+
+  .button {
+    font-size: 25px;
+    background-color: $BACKGROUND_COLOR;
+    color: $GRAY_COLOR;
+    width: max-content;
+    font-weight: 700;
+    margin-top: 20px;
+    padding: 20px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    animation-name: buttonShow;
+    animation-duration: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    transition: 0.5s;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+    }
+  }
+
+  .info {
+    position: absolute;
+    top: 10px;
+    right: 2.5vw;
+    color: $BACKGROUND_COLOR;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: right;
+
+    img {
+      transition: 1s;
+      width: 60%;
+    }
+  }
+
+  .info-small {
+    font-size: 12px;
+    top: 10px;
+    line-height: 18px;
+
+    img {
+      width: 60%;
+    }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 25px;
+    right: 2.5vw;
+    text-align: right;
+    transition: 0.5s;
+    transition-delay: 0.2s;
+
+    p {
+      font-weight: 700;
+      color: $BROWN_COLOR;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    p:first-child {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.bottomHide {
+  opacity: 0;
+  transition-delay: 0s !important;
+}
+
+.move {
+  padding-top: 1vh !important;
+
+  p {
+    font-size: 20px !important;
+  }
+
+  .title {
+    opacity: 0;
+    line-height: 10px;
+  }
+}
+
+.move2 {
+  padding-top: 0px !important;
+  //   margin-top: -15px !important;
+
+  .subtitle {
+    margin-top: 0px;
+  }
+
+  p {
+    font-size: 15px !important;
+  }
+}
+
+.hidden {
+  opacity: 0;
+
+  animation-name: hide;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+.buttonHidden {
+  display: none;
+}
+
+.next {
+  display: none;
+  margin-top: 0px;
+  transition: 1s;
+  opacity: 0;
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    transition: 1s;
+    line-height: 28px;
+  }
+
+  .subtitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}
+
+.button2 {
+  opacity: 0;
+  font-size: 25px;
+  background-color: $BACKGROUND_COLOR;
+  color: $GRAY_COLOR;
+  width: max-content;
+  font-weight: 700;
+  margin-top: 50px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: 0.5s;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+  }
+}
+
+.nextShow {
+  display: block;
+  animation-name: textAppear;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.nextShow2 {
+  display: block;
+  opacity: 1;
+
+  .title {
+    font-size: 15px;
+  }
+
+  .subtitle {
+    // display: none;
+  }
+}
+
+.nextAnimation {
+  margin-top: 100px;
+  animation-name: textMoveBack;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.nextShow3 {
+  display: block;
+  opacity: 1;
+  margin-top: 0px !important;
+  .title {
+    font-size: 15px;
+    transition: 1s;
+    animation-name: fontIncrease;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    color: rgba(255, 255, 255, 0.712);
+  }
+
+  .subtitle {
+    // display: none;
+  }
+}
+
+.titleReduce {
+  font-size: 20px;
+  animation-name: fontDecrease;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.active {
+  opacity: 1 !important;
+  color: $BACKGROUND_COLOR !important;
+}
+
+.menu-small {
+  height: 65px;
+}
+
+.menu-medium {
+  height: 200px;
+}
+
+.full-menu {
+  height: 100%;
+}
+
+.arrow {
+  img {
+    width: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 7px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: 1s;
+  }
+}
+
+.imageShow {
+  opacity: 1 !important;
+}
+
+@keyframes fontIncrease {
+  0% {
+    font-size: 15px;
+  }
+  100% {
+    font-size: 20px;
+  }
+}
+
+@keyframes fontDecrease {
+  0% {
+    font-size: 20px;
+  }
+  100% {
+    font-size: 15px;
+  }
+}
+
+@keyframes buttonShow {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes textAppear {
+  0% {
+    opacity: 0;
+    margin-top: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 100px;
+  }
+}
+
+@keyframes textMoveBack {
+  0% {
+    margin-top: 100px;
+  }
+
+  100% {
+    margin-top: 0px;
+  }
+}
+
+.titles {
+  // border: 1px solid red;
+  overflow: hidden;
+  height: 22px;
+  transition: 1s;
+}
+
+.titles-small {
+  height: 20px;
+}
+
+.titles-full {
+  height: 150px;
+}
+
+.credits {
+  background-color: $BACKGROUND_COLOR;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: 0.5s;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10000000;
+
+  padding: 25px 25px 5vw 5vw;
+
+  font-size: 20px;
+  line-height: 32px;
+
+  .close {
+    img {
+      position: absolute;
+      right: 5vw;
+      width: 30px;
+      height: 30px;
+      padding: 7.5px;
+      border-radius: 50%;
+      background-color: $GRAY_COLOR;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        transform: rotate(90deg) scale(1.1);
+      }
+    }
+  }
+}
+
+.credits-opacity {
+  opacity: 1;
+  pointer-events: inherit;
+}

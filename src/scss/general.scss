@@ -1,0 +1,44 @@
+// Import FONT
+@font-face {
+  font-family: Goethe;
+  src: url(../assets/font/GoetheGothic.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Goethe;
+  src: url(../assets/font/GoetheGothicBold.ttf);
+  font-weight: 700;
+}
+
+// Variable
+$BACKGROUND_COLOR: #fff;
+$GREEN_COLOR: #a0c814;
+$BROWN_COLOR: #374105;
+$GRAY_COLOR: #788287;
+
+// General
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Goethe;
+  box-sizing: border-box;
+  transition-timing-function: linear;
+}
+
+body {
+  overflow: hidden;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.zoom {
+  height: 200px !important;
+  width: 200px !important;
+}

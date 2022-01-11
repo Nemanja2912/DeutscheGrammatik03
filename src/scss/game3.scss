@@ -1,0 +1,287 @@
+.game3 {
+  .drop-zone {
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 120px;
+    position: relative;
+
+    .balls {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      justify-content: center;
+      padding-left: 2.5px;
+
+      .ball {
+        position: absolute;
+        height: 60px !important;
+        width: 60px !important;
+        font-size: 14px !important;
+
+        &:first-child {
+          top: -26px;
+        }
+
+        &:nth-child(2) {
+          top: -8px;
+          left: -2.5px;
+        }
+
+        &:nth-child(3) {
+          top: -3px;
+          left: -2.5px;
+        }
+
+        &:nth-child(4) {
+          top: -8px;
+          left: -2.5px;
+        }
+
+        &:nth-child(5) {
+          top: -25px;
+          left: -5px;
+        }
+      }
+    }
+  }
+
+  .drop-zone3 {
+    .ball {
+      &:first-child {
+        top: -16px !important;
+      }
+
+      &:nth-child(2) {
+        top: -4px !important;
+        left: -1.2px !important;
+      }
+
+      &:nth-child(3) {
+        top: -4px !important;
+        left: -1px !important;
+      }
+
+      &:nth-child(4) {
+        top: -16px !important;
+        left: -1.5px !important;
+      }
+    }
+  }
+
+  .verb-half-circle {
+    position: absolute;
+    border: 40px solid #eb6400;
+    z-index: -1;
+    border-radius: 50%;
+    transition-property: width, height, top, left, border-width;
+    transition-timing-function: linear;
+    box-sizing: border-box;
+    top: 70px;
+
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 40px solid transparent;
+
+    background-size: 100% 100%, 50% 50%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(white, white),
+      linear-gradient(-7deg, #eb6400 80%, #788287 30%),
+      linear-gradient(7deg, #eb6400 35%, #788287 30%);
+    background-position: center center, right bottom, right top;
+    background-origin: content-box, border-box, border-box;
+    background-clip: content-box, border-box, border-box;
+
+    .cut {
+      position: absolute;
+      border: 40px solid white;
+      background-color: white;
+      transform: rotate(-5deg);
+      z-index: 10000000;
+
+      top: -40px;
+      left: calc(-40px - 10px);
+    }
+  }
+
+  .verb-half-circle2 {
+    top: 270px;
+    z-index: -2;
+  }
+
+  .verb-half-circle3 {
+    top: 500px;
+    z-index: -3;
+  }
+
+  .screen2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 90px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: 3s;
+
+    .verb {
+      background-color: #5ac8f5;
+      border-radius: 5px;
+      padding: 2.5px 5px;
+    }
+
+    .rectangle {
+      border: 7px solid #eb6400;
+      color: #eb6400;
+      border-top: 0px;
+      font-size: 12px;
+      padding-top: 2px;
+      padding-bottom: 4px;
+      text-align: center;
+      position: relative;
+      top: 10px;
+      border-radius: 2.5px;
+      font-weight: bold;
+    }
+
+    .line1 {
+      .rectangle {
+        width: 230px;
+        left: 40px;
+      }
+    }
+
+    .line2 {
+      .rectangle {
+        width: 230px;
+        left: 70px;
+      }
+    }
+
+    .line3 {
+      .rectangle {
+        width: 140px;
+        left: 120px;
+      }
+    }
+  }
+
+  .screen3 {
+    background-color: #bbc0c3;
+    font-size: 20px;
+    width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: -250px;
+    padding: 20px;
+    z-index: -1;
+    transition: 1s;
+
+    animation-name: buttonShow;
+    animation-duration: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .text {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      row-gap: 10px;
+      margin-bottom: 10px;
+
+      .blank {
+        background-color: white;
+        width: 150px;
+        font-size: 20px;
+        margin: 0 5px;
+        padding: 5px;
+        border-radius: 7px;
+        color: white;
+      }
+    }
+
+    .options {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .dragElement {
+        background-color: #5ac8f5;
+        width: 150px;
+        margin: 5px;
+        text-align: center;
+        border-radius: 7px;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        .option {
+          padding: 5px;
+        }
+      }
+
+      .green {
+        background-color: #a0c814;
+      }
+    }
+  }
+
+  .button {
+    font-size: 25px;
+    background-color: white;
+    color: #788287;
+    width: max-content;
+    font-weight: 700;
+    margin-top: 20px;
+    padding: 20px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    animation-name: buttonShow;
+    animation-duration: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    transition: 0.5s;
+    margin: auto;
+    z-index: 1000000000000;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+    }
+  }
+
+  @keyframes buttonShow {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    75% {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
