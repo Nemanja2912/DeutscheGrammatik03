@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/DeutscheGrammatik03/static/css/main.cf9f3034.chunk.css",
+    "main.js": "/DeutscheGrammatik03/static/js/main.eb7d2af8.chunk.js",
+    "main.js.map": "/DeutscheGrammatik03/static/js/main.eb7d2af8.chunk.js.map",
+    "runtime-main.js": "/DeutscheGrammatik03/static/js/runtime-main.afee17c6.js",
+    "runtime-main.js.map": "/DeutscheGrammatik03/static/js/runtime-main.afee17c6.js.map",
+    "static/js/2.f84403ba.chunk.js": "/DeutscheGrammatik03/static/js/2.f84403ba.chunk.js",
+    "static/js/2.f84403ba.chunk.js.map": "/DeutscheGrammatik03/static/js/2.f84403ba.chunk.js.map",
+    "index.html": "/DeutscheGrammatik03/index.html",
+    "static/css/main.cf9f3034.chunk.css.map": "/DeutscheGrammatik03/static/css/main.cf9f3034.chunk.css.map",
+    "static/js/2.f84403ba.chunk.js.LICENSE.txt": "/DeutscheGrammatik03/static/js/2.f84403ba.chunk.js.LICENSE.txt",
+    "static/media/general.css": "/DeutscheGrammatik03/static/media/GoetheGothicBold.612e7d20.ttf",
+    "static/media/arrow.6af90567.svg": "/DeutscheGrammatik03/static/media/arrow.6af90567.svg",
+    "static/media/arrow_down.280089b6.svg": "/DeutscheGrammatik03/static/media/arrow_down.280089b6.svg",
+    "static/media/asset1.efdcc200.svg": "/DeutscheGrammatik03/static/media/asset1.efdcc200.svg",
+    "static/media/asset2.5fd47f2f.svg": "/DeutscheGrammatik03/static/media/asset2.5fd47f2f.svg",
+    "static/media/subtract.86d0e8f7.svg": "/DeutscheGrammatik03/static/media/subtract.86d0e8f7.svg",
+    "static/media/wrong.e1e9b4ab.svg": "/DeutscheGrammatik03/static/media/wrong.e1e9b4ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.afee17c6.js",
+    "static/js/2.f84403ba.chunk.js",
+    "static/css/main.cf9f3034.chunk.css",
+    "static/js/main.eb7d2af8.chunk.js"
+  ]
+}
