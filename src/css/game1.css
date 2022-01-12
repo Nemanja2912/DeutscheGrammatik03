@@ -1,266 +1,97 @@
 .game1 {
-  padding-top: 80px;
+  padding-top: 125px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
 }
 
-.game1 .opacity {
-  pointer-events: none;
-  opacity: 0;
-}
-
-.game1 .balls {
-  display: flex;
+.game1 audio {
   position: absolute;
-}
-
-.game1 .balls .ball {
-  margin: 0;
-  position: relative;
-  z-index: 1;
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  background: radial-gradient(circle at 25px 25px, #a0c813, #5f5f5f);
-  font-size: 16px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  text-align: center;
-  transition-timing-function: linear;
-  overflow: hidden;
-  transform: scale(0);
-}
-
-.game1 .balls .text {
-  width: max-content;
-  height: max-content;
-}
-
-.game1 .balls .fake-text {
-  position: absolute;
-  transform: translateY(-300);
+  visibility: hidden;
 }
 
 .game1 .images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 75px;
   position: relative;
-  margin-top: 100px;
+  top: 0;
+  opacity: 1;
+  transition: 0.25s;
 }
 
 .game1 .images img {
-  height: 200px;
+  width: 200px;
+  height: auto;
+  cursor: pointer;
 }
 
-.game1 .images .image2 {
+.game1 .clone img {
+  width: 200px;
+  cursor: pointer;
   position: absolute;
-  left: 0;
-  z-index: 205;
-  pointer-events: none;
+  transition: 0.25s linear !important;
 }
 
-.game1 .images .blue-circle {
+.game1 .clone .text {
+  opacity: 0;
+  transition: 0.25s linear;
+  background-color: #5ac8f5;
+  width: 500px;
+  padding: 10px;
+  text-align: center;
   position: absolute;
+  top: 500px;
   left: 0;
   right: 0;
   margin: auto;
-  top: 0;
-  background-color: #5ac8f5;
-  width: 150px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 30px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 1s;
-  font-weight: bold;
-}
-
-.game1 .images .blue-circle:hover {
-  transform: scale(1.2);
-}
-
-.game1 .drop-area {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.game1 .drop-area .title {
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.game1 .drop-area .container {
-  background-color: #bbc0c3;
-  width: 200px;
-  border-radius: 0 0 20px 20px;
-  height: 260px;
-}
-
-.game1 .rotate {
-  animation-name: rotate;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
-
-.game1 .reverse-rotate {
-  animation-name: reverse-rotate;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
-
-.game1 .spin .text {
-  animation-name: spin;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
-
-.game1 .spin .fake-text {
-  animation-name: fake-spin;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
-
-.game1 .show {
-  transform: scale(1) !important;
-}
-
-.game1 .secondPart {
-  transform: translateY(-330px);
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.game1 .secondPart-drop {
-  transform: translateY(-330px);
-  transition: 0.5s;
-}
-
-.game1 .secondPart-ball {
-  transform: translateY(-330px);
-  transition: 0.5s;
-  z-index: 1000;
-}
-
-.game1 .second-part-box {
-  margin-top: 50px;
-  transform: translateY(-330px);
-  transition: 0.5s;
-  opacity: 0;
-  z-index: 1000;
-  height: 100%;
-  background-color: #bbc0c3;
   border-radius: 10px;
-  padding: 25px;
+  font-size: 16px;
 }
 
-.game1 .second-part-box .details-box {
+.game1 .options {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
   position: absolute;
-  top: -110px;
-  left: 250px;
-  z-index: 10000;
+  top: 120%;
+  transition: 0.25s linear;
+  opacity: 0;
 }
 
-.game1 .second-part-box .line {
+.game1 .options .option {
+  width: 150px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 22px;
-  gap: 10px;
-  color: #374105;
-  line-height: 40px;
+}
+
+.game1 .options .option img {
+  width: 80%;
+  margin-top: 15px;
   position: relative;
+  transform-origin: top left;
 }
 
-.game1 .second-part-box .line .blank {
-  background-color: #fff;
-  width: 200px;
-  height: 35px;
+.game1 .options .option .btn {
+  background-color: #a0c814;
+  text-align: center;
+  padding: 10px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
-}
-
-.game1 .second-part-box .options {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.game1 .second-part-box .options .dragElement {
-  position: relative;
-  cursor: pointer;
-  background-color: #5ac8f5;
-  width: 200px;
-  height: 35px;
-  border-radius: 10px;
-  font-size: 22px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-size: 20px;
+  color: white;
   transition: 0.5s;
+  width: max-content;
 }
 
-.game1 .second-part-box .options .dragElement:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.game1 .options .option .btn-hover {
+  cursor: pointer;
 }
 
-.game1 .second-part-box .options .green {
-  background-color: #a0c814 !important;
-}
-
-.game1 .box-animation {
-  opacity: 1 !important;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes reverse-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(300%);
-  }
-}
-
-@keyframes fake-spin {
-  0% {
-    transform: translateY(-300%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
+.game1 .options .option .btn-hover:hover {
+  box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
 }
 /*# sourceMappingURL=game1.css.map */
