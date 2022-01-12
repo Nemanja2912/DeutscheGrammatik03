@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/DeutscheGrammatik03/static/css/main.49422925.chunk.css",
-    "main.js": "/DeutscheGrammatik03/static/js/main.823b731d.chunk.js",
-    "main.js.map": "/DeutscheGrammatik03/static/js/main.823b731d.chunk.js.map",
+    "main.js": "/DeutscheGrammatik03/static/js/main.1635ef09.chunk.js",
+    "main.js.map": "/DeutscheGrammatik03/static/js/main.1635ef09.chunk.js.map",
     "runtime-main.js": "/DeutscheGrammatik03/static/js/runtime-main.afee17c6.js",
     "runtime-main.js.map": "/DeutscheGrammatik03/static/js/runtime-main.afee17c6.js.map",
     "static/js/2.f84403ba.chunk.js": "/DeutscheGrammatik03/static/js/2.f84403ba.chunk.js",
@@ -44,6 +44,6 @@
     "static/js/runtime-main.afee17c6.js",
     "static/js/2.f84403ba.chunk.js",
     "static/css/main.49422925.chunk.css",
-    "static/js/main.823b731d.chunk.js"
+    "static/js/main.1635ef09.chunk.js"
   ]
 }
