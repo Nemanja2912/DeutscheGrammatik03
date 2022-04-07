@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-const Indicator = ({ active = false, wrong = false }) => {
+const Indicator = ({ active = false, activeFunc = () => {} }) => {
   const [animationStart, setAnimationStart] = useState(false);
+  const [activeIndicator, setActiveIndicator] = useState(active[0]);
 
   useEffect(() => {
+    setAnimationStart(active[0]);
+
     setTimeout(() => {
-      setAnimationStart(active);
-    }, 0);
+      setAnimationStart(false);
+    }, 500);
   }, [active]);
 
   let Indicator = {
@@ -20,20 +23,20 @@ const Indicator = ({ active = false, wrong = false }) => {
     zIndex: "10000",
     height: "150px",
     width: "150px",
-    backgroundColor: wrong ? "#EB8336" : "#a0c814",
+    backgroundColor: active[0] === "wrong" ? "#EB8336" : "#a0c814",
     borderRadius: "50%",
-    display: active ? "flex" : "none",
+    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     padding: "50px",
     pointerEvents: "none",
     transition: "1s",
-    opacity: animationStart ? 0 : 1,
+    opacity: animationStart ? 1 : 0,
   };
 
   return ReactDOM.createPortal(
     <div className="Indicator" style={Indicator}>
-      {wrong ? (
+      {active[0] === "wrong" ? (
         <svg
           width="352"
           height="512"

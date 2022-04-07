@@ -45,7 +45,7 @@ function App() {
       {navMenuItem === 3 && <Game4 />}
       {navMenuItem === 4 && <Game5 />} */}
 
-      <Game1 />
+      <Game2 />
     </div>
   );
 }

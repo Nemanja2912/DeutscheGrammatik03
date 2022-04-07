@@ -35,4 +35,11 @@ body {
   height: 200px !important;
   width: 200px !important;
 }
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
 /*# sourceMappingURL=general.css.map */

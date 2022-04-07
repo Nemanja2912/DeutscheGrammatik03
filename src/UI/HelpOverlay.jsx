@@ -29,7 +29,7 @@ const HelpOverlay = ({ pos = false, closeOverlay }) => {
   });
 
   useEffect(() => {
-    if (pos === "init") {
+    if (pos === "init" && customSvgStyle.top !== 90) {
       closeOverlay();
       setCustomSvgStyle({ top: 90, left: window.innerWidth - 80 });
     }

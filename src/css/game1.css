@@ -1,9 +1,10 @@
 .game1 {
-  padding-top: 125px;
+  padding-top: 75px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  width: 1000px;
 }
 
 .game1 audio {
@@ -16,66 +17,77 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 75px;
-  position: relative;
-  top: 0;
-  opacity: 1;
-  transition: 0.25s;
+  width: 800px;
+  position: absolute;
+  transition: 0.5s linear;
 }
 
 .game1 .images img {
-  width: 200px;
-  height: auto;
   cursor: pointer;
+  width: 200px;
 }
 
-.game1 .clone img {
-  width: 200px;
-  cursor: pointer;
+.game1 .show-image {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  transition: 0.25s linear !important;
+  top: 75px;
 }
 
-.game1 .clone .text {
-  opacity: 0;
-  transition: 0.25s linear;
+.game1 .show-image img {
+  width: 500px;
+  position: relative;
+}
+
+.game1 .show-image .description {
+  transition: 0.5s linear;
   background-color: #5ac8f5;
   width: 500px;
   padding: 10px;
   text-align: center;
-  position: absolute;
-  top: 500px;
-  left: 0;
-  right: 0;
-  margin: auto;
   border-radius: 10px;
   font-size: 16px;
 }
 
-.game1 .options {
-  display: flex;
-  gap: 100px;
-  justify-content: center;
-  position: absolute;
-  top: 120%;
-  transition: 0.25s linear;
-  opacity: 0;
+.game1 .option-screen {
+  width: 600px;
 }
 
-.game1 .options .option {
-  width: 150px;
+.game1 .option-screen .image {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.game1 .options .option img {
-  width: 80%;
-  margin-top: 15px;
-  position: relative;
-  transform-origin: top left;
+.game1 .option-screen .image img {
+  width: 300px;
 }
 
-.game1 .options .option .btn {
+.game1 .option-screen .image .description {
+  background-color: #5ac8f5;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.game1 .option-screen .options {
+  transition: 0.5s linear;
+}
+
+.game1 .option-screen .options .option-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.game1 .option-screen .options .option .button {
+  margin: auto;
+  margin-bottom: 25px;
   background-color: #a0c814;
   text-align: center;
   padding: 10px 15px;
@@ -83,15 +95,448 @@
   border-radius: 10px;
   font-size: 20px;
   color: white;
-  transition: 0.5s;
   width: max-content;
-}
-
-.game1 .options .option .btn-hover {
   cursor: pointer;
 }
 
-.game1 .options .option .btn-hover:hover {
-  box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
+.game1 .option-screen .options .option .box {
+  text-align: center;
+  width: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game1 .option-screen .options .option .box img {
+  width: 125px;
+}
+
+.game1 .option-screen .options .option .box .description {
+  opacity: 0;
+  transition: 0.5s linear;
+  background-color: #5ac8f5;
+  border-radius: 10px;
+  padding: 7px;
+  font-size: 12px;
+  width: 175px;
+}
+
+.game1 .option-screen .options .option .box-completed {
+  margin-bottom: 15px;
+  transition: 0.5s linear;
+}
+
+.game1 .option-screen .options .option .box-completed img {
+  width: 175px;
+  transition: 0.5s linear;
+}
+
+.game1 .option-screen .options .option .box-completed .description {
+  opacity: 1;
+}
+
+.game1 .part2 {
+  position: absolute;
+  left: 0;
+  display: grid;
+  width: 1000px;
+  padding-left: 25px;
+  grid-template-columns: 1fr max-content;
+  gap: 25px;
+}
+
+.game1 .part2 .drop-zones {
+  position: relative;
+  z-index: 10000;
+  opacity: 0;
+  transition: 0.25s linear;
+}
+
+.game1 .part2 .drop-zone {
+  display: flex;
+  margin: 25px 0;
+  height: 250px;
+}
+
+.game1 .part2 .drop-zone .left {
+  background-color: #a0c814;
+  width: 85px;
+  position: relative;
+  border-radius: 20px 0 0 20px;
+}
+
+.game1 .part2 .drop-zone .left .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform: rotate(-90deg);
+  font-size: 14px;
+  position: absolute;
+  left: 49px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: max-content;
+}
+
+.game1 .part2 .drop-zone .left .text p {
+  display: inline-block;
+  width: max-content;
+  margin-bottom: 5px;
+}
+
+.game1 .part2 .drop-zone .left .text .bold {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.game1 .part2 .drop-zone .left .text .title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.game1 .part2 .drop-zone .right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.game1 .part2 .drop-zone .right .top,
+.game1 .part2 .drop-zone .right .bottom {
+  position: relative;
+  background-color: #d6d9db;
+  height: 100%;
+  color: #e2e2e2;
+  font-weight: bold;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 10px 10px 0;
+}
+
+.game1 .part2 .drop-zone .right .top .boxes,
+.game1 .part2 .drop-zone .right .bottom .boxes {
+  position: absolute;
+  top: 5px;
+  left: 70px;
+  right: 30px;
+  bottom: 9px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  font-weight: normal;
+}
+
+.game1 .part2 .drop-zone .right .top .boxes .blue-box,
+.game1 .part2 .drop-zone .right .bottom .boxes .blue-box {
+  opacity: 0;
+  transition: 0.5s;
+  background-color: #5ac8f5;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+}
+
+.game1 .part2 .render-images {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 125px;
+  margin: auto;
+}
+
+.game1 .part2 .render-images .wrapper {
+  position: absolute;
+  position: flex;
+  flex-direction: column;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.game1 .part2 .render-images .wrapper img {
+  width: 150px;
+  pointer-events: none;
+  height: auto;
+}
+
+.game1 .part2 .render-images .wrapper p {
+  pointer-events: none;
+  font-size: 10px;
+  width: 150px;
+  text-align: center;
+  background-color: #5ac8f5;
+  padding: 7px;
+  opacity: 0;
+  transition: 0.25s linear;
+  border-radius: 10px;
+}
+
+.game1 .part2 .render-images .wrapper:nth-child(1) {
+  left: 20px;
+  bottom: 25px;
+  z-index: 9;
+}
+
+.game1 .part2 .render-images .wrapper:nth-child(2) {
+  left: 40px;
+  bottom: 50px;
+  z-index: 8;
+}
+
+.game1 .part2 .render-images .wrapper:nth-child(3) {
+  left: 60px;
+  bottom: 75px;
+  z-index: 7;
+}
+
+.game1 .part2 .render-images .wrapper:nth-child(4) {
+  left: 80px;
+  bottom: 100px;
+  z-index: 6;
+}
+
+.game1 .part2 .render-images .wrapper:nth-child(5) {
+  left: 100px;
+  bottom: 125px;
+  z-index: 5;
+}
+
+.game1 .part2 .render-images .wrapper:nth-child(6) {
+  left: 120px;
+  bottom: 150px;
+  z-index: 4;
+}
+
+.game1 .details-box-wrapper {
+  position: absolute;
+  transition: 0.5s linear opacity;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.game1 .button-submit {
+  font-size: 25px;
+  background-color: #fff;
+  color: #788287;
+  width: max-content;
+  font-weight: 700;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation-name: buttonShow;
+  animation-duration: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  transition: 0.5s;
+}
+
+.game1 .button-submit:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+}
+
+@keyframes buttonShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.sentence-part {
+  position: absolute;
+  width: 1000px;
+  padding-left: 100px;
+  margin-top: 100px;
+  font-size: 20px;
+  animation-name: show;
+  animation-duration: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transition: 0.5s;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.sentence-part .line {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 50px;
+  align-items: center;
+}
+
+.sentence-part .line .blank {
+  background-color: #d6d9db;
+  width: 175px;
+  border-radius: 10px;
+  padding: 5px 0;
+}
+
+.sentence-part .line .blank p {
+  cursor: default !important;
+}
+
+.sentence-part .line .sentence {
+  display: flex;
+  transition: 0.25s;
+}
+
+.sentence-part .line .sentence p {
+  background-color: #5ac8f5;
+  border-radius: 7.5px;
+  padding: 0px 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.sentence-part .line .sentence p:hover {
+  background-color: #0da0dc;
+}
+
+.sentence-part .clone {
+  position: relative;
+  cursor: pointer;
+  z-index: 10000;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.sentence-part .clone p {
+  padding: 0px 5px;
+  border-radius: 7.5px;
+  background-color: #ddd;
+  cursor: default !important;
+}
+
+.sentence-part .finished .line p {
+  cursor: default !important;
+}
+
+.sentence-part .finished .line p:hover {
+  background-color: #5ac8f5 !important;
+}
+
+.sentence-part .finished .clone p {
+  background-color: transparent !important;
+}
+
+.sentence-part .finished .clone p:hover {
+  background-color: transparent !important;
+}
+
+.sentence-part .line-wrapper {
+  left: 0;
+  top: 0;
+  position: relative;
+  transition: 0.25s;
+  transition-delay: 500ms;
+}
+
+.sentence-part .completed-line {
+  left: 200px;
+}
+
+.sentence-part .completed-line .sentence {
+  opacity: 0;
+}
+
+.sentence-part .completed-line:nth-child(1) {
+  top: 100px;
+}
+
+.sentence-part .completed-line:nth-child(2) {
+  top: 80px;
+}
+
+.sentence-part .completed-line:nth-child(3) {
+  top: 100px;
+}
+
+.sentence-part .completed-line:nth-child(4) {
+  top: 80px;
+}
+
+.sentence-part .completed-line:nth-child(5) {
+  top: 100px;
+}
+
+.sentence-part .completed-line:nth-child(6) {
+  top: 80px;
+}
+
+.sentence-part .box {
+  position: absolute;
+  left: 470px;
+  color: #798388;
+  display: flex;
+  align-items: center;
+}
+
+.sentence-part .box .bracket {
+  height: max-content;
+  line-height: 100%;
+  font-size: 130px;
+}
+
+.sentence-part .box .green {
+  display: flex;
+  background-color: #a0c814;
+  border-radius: 15px;
+  height: 125px;
+  margin-top: 10px;
+  align-items: center;
+  color: #fff;
+  width: 200px;
+  justify-content: center;
+}
+
+.sentence-part .box1 {
+  top: 72px;
+}
+
+.sentence-part .box2 {
+  top: 215px;
+}
+
+.sentence-part .box3 {
+  top: 355px;
+}
+
+.sentence-part .static-screen {
+  transition: 0.5s;
+  transition-delay: 0.5s;
 }
 /*# sourceMappingURL=game1.css.map */
