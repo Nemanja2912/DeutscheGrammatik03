@@ -4,7 +4,13 @@ import Box from "../UI/Box";
 import Foot from "./interactive/Foot";
 import InteractiveLeftSide from "./InteractiveLeftSide";
 
-const InteractiveStepOne = ({ group, onChoose, disable, completed }) => {
+const InteractiveStepOne = ({
+  group,
+  onChoose,
+  disable,
+  completed,
+  optionRefs,
+}) => {
   const [active, setActive] = useState(-1);
 
   const handleClick = (index) => {
@@ -24,6 +30,7 @@ const InteractiveStepOne = ({ group, onChoose, disable, completed }) => {
       <div className="right">
         {group.map((word, index) => (
           <div
+            ref={optionRefs[index]}
             onClick={() => {
               handleClick(index);
             }}

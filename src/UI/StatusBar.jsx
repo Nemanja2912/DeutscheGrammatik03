@@ -36,7 +36,17 @@ const StatusBar = ({
           detailsText={"Hilfe"}
           color={"#5ac8f5"}
           onClick={() => {
+            if (helpFingerPosition === "disable") {
+              setHelpOverlay(true);
+
+              setTimeout(() => {
+                setHelpOverlay(false);
+              }, 500);
+              return;
+            }
+
             if (preventHelp || helpFingerPosition !== "init") return;
+
             setHelpOverlay(true);
             setShowHelp(true);
           }}

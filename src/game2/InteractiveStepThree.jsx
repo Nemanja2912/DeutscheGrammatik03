@@ -11,6 +11,8 @@ const InteractiveStepThree = ({
   successStepThree,
   setSuccessStepThree,
   choiceLevel,
+  help,
+  eraserRef,
 }) => {
   let leftText = `Mit ${
     choiceLevel === 2 ? "Wortwechsler" : "Radiergummi"
@@ -55,7 +57,9 @@ const InteractiveStepThree = ({
                       return [...prev];
                     })
                   }
-                  active={activeOption !== -1 && stepLevel[0][1] >= 1}
+                  eraserRef={eraserRef[0]}
+                  active={activeOption === 0 && stepLevel[0][1] >= 1}
+                  help={help[0]}
                 />
               ) : (
                 <EraseMoveWord
@@ -66,7 +70,9 @@ const InteractiveStepThree = ({
                       return [...prev];
                     })
                   }
-                  active={activeOption !== -1 && stepLevel[0][1] >= 1}
+                  eraserRef={eraserRef[0]}
+                  help={help[0]}
+                  active={activeOption === 0 && stepLevel[0][1] >= 1}
                 />
               )}
             </div>
@@ -95,13 +101,15 @@ const InteractiveStepThree = ({
               {choiceLevel !== 2 ? (
                 <EraseWord
                   word={group.eraseWord[1]}
+                  eraserRef={eraserRef[1]}
+                  help={help[1]}
                   success={() =>
                     setSuccessStepThree((prev) => {
                       prev[1] = true;
                       return [...prev];
                     })
                   }
-                  active={activeOption !== -1 && stepLevel[1][1] >= 1}
+                  active={activeOption === 1 && stepLevel[1][1] >= 1}
                 />
               ) : (
                 <EraseMoveWord
@@ -112,7 +120,9 @@ const InteractiveStepThree = ({
                       return [...prev];
                     })
                   }
-                  active={activeOption !== -1 && stepLevel[1][1] >= 1}
+                  eraserRef={eraserRef[1]}
+                  help={help[1]}
+                  active={activeOption === 1 && stepLevel[1][1] >= 1}
                 />
               )}
             </div>

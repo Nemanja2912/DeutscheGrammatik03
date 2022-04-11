@@ -1,8 +1,10 @@
 import React from "react";
-import { useState, useEffect, useReducer, createRef, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../css/game2.css";
 import ChooseOption from "./ChooseOption";
 import InteractiveScreen from "./InteractiveScreen";
+
+import StatusBar from "./../UI/StatusBar";
 
 import Image1a from "../assets/img/story2a.jpg";
 import Image1b from "../assets/img/story1a.jpg";
@@ -61,7 +63,7 @@ const group = [
         { letter: "r", opacity: false },
         { letter: "s", opacity: true },
         { letter: "t", opacity: true },
-        { letter: ".", blank: true, opacity: true },
+        { letter: ".", blank: true, opacity: false },
         { letter: "a", opacity: false },
         { letter: "n", opacity: false },
       ],
@@ -213,44 +215,34 @@ const group = [
     ],
     eraseWord: [
       [
-        { word: "Sie", pos: 1 },
+        { word: "Sie", pos: 1, move: true },
         { word: "geben", pos: 0 },
       ],
       [
-        { letter: "S", opacity: true },
-        { letter: "i", opacity: true },
-        { letter: "e", opacity: true },
-        { letter: ".", blank: true },
-        { letter: "e", opacity: false },
-        { letter: "r", opacity: false },
-        { letter: "z", opacity: false },
-        { letter: "ä", opacity: false },
-        { letter: "h", opacity: true },
-        { letter: "l", opacity: true },
-        { letter: "e", opacity: true },
-        { letter: "n", opacity: true },
+        { word: "Sie", pos: 1, move: true },
+        { word: "erzählen", pos: 0 },
       ],
     ],
     step4: [
       {
-        word: "Probier an!",
+        word: "Geben Sie!",
         description: (
           <>
-            <b>Probier</b> mal dieses Kleid <b>an!</b>
+            <b>Geben Sie</b> mir bitte eine Tüte!
           </>
         ),
-        img: Image2a,
-        sound: Audio1a,
+        img: Image3a,
+        sound: Audio3a,
       },
       {
-        word: "Fahr!",
+        word: "Erzählen Sie!",
         description: (
           <>
-            <b>Fahr</b> geradeaus!
+            <b>Erzählen Sie!</b>
           </>
         ),
-        img: Image1a,
-        sound: Audio1b,
+        img: Image3b,
+        sound: Audio3b,
       },
     ],
   },
@@ -266,6 +258,18 @@ const Game2 = () => {
 
   const [keyboard, setKeyboard] = useState(true);
 
+  const [infoText, setInfoText] = useState(
+    <>
+      Wie bildet man die Imperativ-Formen? <br /> Klick die blauen Felder an.
+    </>
+  );
+  const [infoOverlay, setInfoOverlay] = useState(true);
+  const [helpOverlay, setHelpOverlay] = useState(false);
+  const [helpFingerPosition, setHelpFingerPosition] = useState("init");
+  const [preventHelp, setPreventHelp] = useState(false);
+
+  const optionRefs = [useRef(null), useRef(null), useRef(null)];
+
   const handleFinished = (index) => {
     setFinished((prev) => {
       prev[index] = true;
@@ -274,10 +278,50 @@ const Game2 = () => {
     });
   };
 
+  useEffect(() => {
+    if (!helpOverlay) return;
+
+    if (!miniBox || true) {
+      let index;
+      for (let i = 0; i < finished.length; i++) {
+        if (!finished[i]) {
+          index = i;
+          break;
+        }
+      }
+
+      if (!miniBox) {
+        setHelpFingerPosition([
+          optionRefs[index].current.getBoundingClientRect().left +
+            optionRefs[index].current.getBoundingClientRect().width / 2,
+          optionRefs[index].current.getBoundingClientRect().top +
+            optionRefs[index].current.getBoundingClientRect().height / 2,
+        ]);
+
+        setTimeout(() => {
+          setHelpFingerPosition("init");
+          optionRefs[index].current.click();
+        }, 1250);
+      } else {
+        setHelpFingerPosition([
+          optionRefs[index].current.getBoundingClientRect().right - 30,
+          optionRefs[index].current.getBoundingClientRect().top +
+            optionRefs[index].current.getBoundingClientRect().height / 2,
+        ]);
+
+        setTimeout(() => {
+          setHelpFingerPosition("init");
+          optionRefs[index].current.click();
+        }, 1250);
+      }
+    }
+  }, [helpOverlay]);
+
   return (
     <div className="game2">
       <ChooseOption
         optionActive={optionActive}
+        optionRefs={optionRefs}
         setOptionActive={setOptionActive}
         group={group}
         miniBox={miniBox}
@@ -323,6 +367,18 @@ const Game2 = () => {
         setChoiceDisable={setChoiceDisable}
         handleFinished={() => handleFinished(2)}
       />
+      {(!miniBox || finished[optionActive]) && (
+        <>
+          <StatusBar
+            infoText={infoText}
+            infoOverlay={infoOverlay}
+            setInfoOverlay={setInfoOverlay}
+            setHelpOverlay={setHelpOverlay}
+            preventHelp={preventHelp}
+            helpFingerPosition={helpFingerPosition}
+          />
+        </>
+      )}
     </div>
   );
 };

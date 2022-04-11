@@ -145,12 +145,18 @@ const Keyboard = ({
                 key={letterIndex}
                 className="button"
                 onClick={() => {
+                  console.log(button);
+
                   if (letter.props?.btn === "del") {
-                    returnLetter("Backspace");
+                    window.dispatchEvent(
+                      new KeyboardEvent("keydown", { key: "Backspace" })
+                    );
                   } else if (letter.props?.btn === "up") {
-                    setShiftActive((prev) => !prev);
+                    setShiftActive(true);
                   } else {
-                    returnLetter(button);
+                    window.dispatchEvent(
+                      new KeyboardEvent("keydown", { key: button })
+                    );
                   }
                 }}
                 style={{

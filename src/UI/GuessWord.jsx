@@ -177,6 +177,20 @@ const GuessWord = ({
     getLetter(letter);
   };
 
+  useEffect(() => {
+    const custom = customWord.split("");
+
+    for (let i = 0; i < custom.length; i++) {
+      if (custom[i] !== guessWordHolder[i]) {
+        if (i + 1 <= custom.length) {
+          setBlinkPosition(i + 1);
+        }
+
+        break;
+      }
+    }
+  }, [customWord]);
+
   return (
     <div className="guess-screen">
       <div className="guess-word" style={guessWordStyle}>

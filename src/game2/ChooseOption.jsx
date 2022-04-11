@@ -11,6 +11,7 @@ const ChooseOption = ({
   choiceDisable,
   finished,
   setKeyboard,
+  optionRefs,
 }) => {
   const handleChooseOption = (index) => {
     if (choiceDisable) return;
@@ -32,6 +33,7 @@ const ChooseOption = ({
     <div className="choose-option" style={{ left: miniBox ? -465 : 350 }}>
       {group.map((group, index) => (
         <Group
+          optionRef={optionRefs[index]}
           word={group.word}
           box={group.pronoun}
           key={index}

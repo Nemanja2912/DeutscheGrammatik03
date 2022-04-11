@@ -12,10 +12,10 @@ const InteractiveStepTwo = ({
   keyboard,
   display,
   setKeyboard,
+  words,
+  setWords,
 }) => {
   const leftText = `${group.pronoun}-Form bilden`;
-
-  const [words, setWords] = useState(["", ""]);
 
   return (
     <div className="step">

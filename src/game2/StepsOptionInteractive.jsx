@@ -11,6 +11,10 @@ const StepsOptionInteractive = ({
   setKeyboard,
   display,
   choiceLevel,
+  words,
+  setWords,
+  help,
+  eraserRef,
   successStepTwo,
   setSuccessStepTwo,
   successStepThree,
@@ -29,12 +33,16 @@ const StepsOptionInteractive = ({
         setKeyboard={setKeyboard}
         success={successStepTwo}
         setSuccess={setSuccessStepTwo}
+        words={words}
+        setWords={setWords}
       />
       <InteractiveStepThree
         group={group}
+        help={help}
         activeOption={activeOption}
         stepLevel={stepLevel}
         choiceLevel={choiceLevel}
+        eraserRef={eraserRef}
         successStepThree={successStepThree}
         setSuccessStepThree={setSuccessStepThree}
       />

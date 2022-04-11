@@ -5,8 +5,15 @@ import Box from "./Box";
 import Finger from "../assets/img/blackFinger.png";
 
 let interval;
+let timeout;
 
-const EraseWord = ({ word, success, active = false }) => {
+const EraseWord = ({
+  word,
+  success,
+  active = false,
+  eraserRef,
+  help = false,
+}) => {
   const [eraserPos, setEraserPos] = useState([-35, 25]);
   const [moveX, setMoveX] = useState(0);
   const [isDone, setIsDone] = useState(false);
@@ -15,7 +22,8 @@ const EraseWord = ({ word, success, active = false }) => {
 
   const boxRef = useRef(null);
   const fingerRef = useRef(null);
-  const eraserRef = useRef(null);
+
+  const moveElementRef = useRef(null);
 
   const eraseContainerStyle = {
     position: "relative",
@@ -77,9 +85,16 @@ const EraseWord = ({ word, success, active = false }) => {
         element.getBoundingClientRect().top < box.bottom
       ) {
         setMoveX((prev) => {
-          if (prev <= 0) return 0;
+          const moveElementWidth = document.querySelector("#move-element");
 
-          return prev + 1;
+          if (
+            prev >=
+            boxRef.current.getBoundingClientRect().width -
+              moveElementWidth.getBoundingClientRect().width
+          )
+            return prev;
+
+          return prev + 0.5;
         });
       }
 
@@ -96,45 +111,39 @@ const EraseWord = ({ word, success, active = false }) => {
   };
 
   useEffect(() => {
-    // if (opacity === 0 && !isDone) {
-    //   let width = 0;
-    //   for (let i = 0; i < boxRef.current.children.length; i++) {
-    //     const element = boxRef.current.children[i];
-    //     if (!word[i].opacity) {
-    //       element.style.transition = "0.25s linear";
-    //       element.style.left =
-    //         boxRef.current.getBoundingClientRect().left -
-    //         element.getBoundingClientRect().left +
-    //         width +
-    //         "px";
-    //       if (word[i].newLetter) {
-    //         element.innerHTML = word[i].newLetter;
-    //       }
-    //       width += element.getBoundingClientRect().width;
-    //     }
-    //   }
-    //   boxRef.current.parentNode.style.width =
-    //     boxRef.current.parentNode.getBoundingClientRect().width + "px";
-    //   boxRef.current.parentNode.style.transition = "0.25s linear";
-    //   setTimeout(() => {
-    //     const paddingLeft = parseFloat(
-    //       window
-    //         .getComputedStyle(boxRef.current.parentNode, null)
-    //         .getPropertyValue("padding-left")
-    //     );
-    //     boxRef.current.parentNode.style.width = width + paddingLeft * 2 + "px";
-    //     success();
-    //     setIsDone(true);
-    //   }, 0);
-    // }
-  }, [opacity]);
+    const moveElementWidth = document.querySelector("#move-element");
+
+    if (
+      moveX >=
+        boxRef.current.getBoundingClientRect().width -
+          moveElementWidth.getBoundingClientRect().width &&
+      !isDone
+    ) {
+      for (let i = 0; i < boxRef.current.children.length; i++) {
+        const element = boxRef.current.children[i];
+
+        if (!word[i].move) {
+          element.style.transition = "0.25s linear";
+          element.style.left =
+            boxRef.current.getBoundingClientRect().left -
+            element.getBoundingClientRect().left +
+            0 +
+            "px";
+        }
+      }
+
+      setTimeout(() => {
+        success();
+        setIsDone(true);
+      }, 0);
+    }
+  }, [moveX]);
 
   const getHelp = () => {
     let move = true;
     setActiveHelp(true);
 
     interval = setInterval(() => {
-      console.log("moving");
       eraserRef.current.style.transition = "0.25s linear";
       if (move) {
         fingerRef.current.style.left = 100 + "px";
@@ -166,11 +175,14 @@ const EraseWord = ({ word, success, active = false }) => {
   useEffect(() => {
     if (!disableHelp) {
       if (active) {
-        if (!activeHelp) {
-          setTimeout(() => {
+        if (!activeHelp && !help) {
+          timeout = setTimeout(() => {
             getHelp();
           }, 2500);
         }
+      } else {
+        clearInterval(interval);
+        clearTimeout(timeout);
       }
     } else {
       clearInterval(interval);
@@ -181,6 +193,52 @@ const EraseWord = ({ word, success, active = false }) => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (help) {
+      const moveElementWidth = document.querySelector("#move-element");
+
+      moveElementRef.current.style.transition = "4s linear";
+
+      setMoveX(
+        boxRef.current.getBoundingClientRect().width -
+          moveElementWidth.getBoundingClientRect().width -
+          1
+      );
+
+      clearTimeout(timeout);
+      clearInterval(interval);
+      setActiveHelp(false);
+      eraserRef.current.style.transition = "1s linear";
+      setEraserPos([30, 25]);
+      setTimeout(() => {
+        setEraserPos((prev) => {
+          prev[0] = -35;
+          return [...prev];
+        });
+        setTimeout(() => {
+          setEraserPos((prev) => {
+            prev[0] = 30;
+            return [...prev];
+          });
+          setTimeout(() => {
+            setEraserPos((prev) => {
+              prev[0] = -35;
+              return [...prev];
+            });
+          }, 1000);
+        }, 1000);
+      }, 1000);
+      setTimeout(() => {
+        const moveElementWidth = document.querySelector("#move-element");
+
+        setMoveX(
+          boxRef.current.getBoundingClientRect().width -
+            moveElementWidth.getBoundingClientRect().width
+        );
+      }, 4000);
+    }
+  }, [help]);
+
   return (
     <div className="eraseWord" style={eraseContainerStyle}>
       <Box opacity={true} success={isDone}>
@@ -188,9 +246,11 @@ const EraseWord = ({ word, success, active = false }) => {
           {word.map((item, index) => {
             return (
               <p
+                id={`${item.move && "move-element"}`}
+                ref={item.move && moveElementRef}
                 style={{
                   position: "relative",
-                  left: 0,
+                  left: item.move ? moveX : 0,
                   marginRight: word.length - 1 === index ? 0 : 10,
                 }}
               >

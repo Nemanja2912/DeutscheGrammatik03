@@ -8,6 +8,7 @@ const Group = ({
   active,
   finished,
   index,
+  optionRef,
 }) => {
   return (
     <div className="group">
@@ -20,6 +21,7 @@ const Group = ({
       <div
         className="interactive-box"
         onClick={handleChooseOption}
+        ref={optionRef}
         style={{
           backgroundColor: !miniBox
             ? "#5ac8f5"

@@ -5,8 +5,15 @@ import Box from "./Box";
 import Finger from "../assets/img/blackFinger.png";
 
 let interval;
+let timeout;
 
-const EraseWord = ({ word, success, active = false }) => {
+const EraseWord = ({
+  word,
+  success,
+  active = false,
+  help = false,
+  eraserRef,
+}) => {
   const [eraserPos, setEraserPos] = useState([-35, 25]);
   const [opacity, setOpacity] = useState(1);
   const [isDone, setIsDone] = useState(false);
@@ -15,7 +22,6 @@ const EraseWord = ({ word, success, active = false }) => {
 
   const boxRef = useRef(null);
   const fingerRef = useRef(null);
-  const eraserRef = useRef(null);
 
   const eraseContainerStyle = {
     position: "relative",
@@ -141,8 +147,9 @@ const EraseWord = ({ word, success, active = false }) => {
     let move = true;
     setActiveHelp(true);
 
+    if (help) return;
+
     interval = setInterval(() => {
-      console.log("moving");
       eraserRef.current.style.transition = "0.25s linear";
       if (move) {
         fingerRef.current.style.left = 100 + "px";
@@ -174,20 +181,70 @@ const EraseWord = ({ word, success, active = false }) => {
   useEffect(() => {
     if (!disableHelp) {
       if (active) {
-        if (!activeHelp) {
-          setTimeout(() => {
+        if (!activeHelp && !help) {
+          timeout = setTimeout(() => {
             getHelp();
           }, 2500);
         }
+      } else {
+        clearInterval(interval);
+        clearTimeout(timeout);
       }
     } else {
       clearInterval(interval);
+      clearTimeout(timeout);
     }
-  }, [active, activeHelp, disableHelp]);
+  }, [active, activeHelp, disableHelp, help]);
 
   useEffect(() => {
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, []);
+
+  useEffect(() => {
+    if (help) {
+      setOpacity("help");
+
+      clearTimeout(timeout);
+      clearInterval(interval);
+
+      setActiveHelp(false);
+
+      eraserRef.current.style.transition = "1s linear";
+
+      setEraserPos([30, 25]);
+
+      setTimeout(() => {
+        setEraserPos((prev) => {
+          prev[0] = -35;
+
+          return [...prev];
+        });
+
+        setTimeout(() => {
+          setEraserPos((prev) => {
+            prev[0] = 30;
+
+            return [...prev];
+          });
+
+          setTimeout(() => {
+            setEraserPos((prev) => {
+              prev[0] = -35;
+
+              return [...prev];
+            });
+          }, 1000);
+        }, 1000);
+      }, 1000);
+
+      setTimeout(() => {
+        setOpacity(0);
+      }, 4000);
+    }
+  }, [help]);
 
   return (
     <div className="eraseWord" style={eraseContainerStyle}>
@@ -197,9 +254,16 @@ const EraseWord = ({ word, success, active = false }) => {
             return (
               <p
                 style={{
-                  opacity: item.blank ? 0 : item.opacity ? opacity : 1,
+                  opacity: item.blank
+                    ? 0
+                    : item.opacity
+                    ? opacity === "help"
+                      ? 0
+                      : opacity
+                    : 1,
                   position: "relative",
                   left: 0,
+                  transition: opacity === "help" ? "4s linear" : "0s",
                 }}
               >
                 {item.letter}
