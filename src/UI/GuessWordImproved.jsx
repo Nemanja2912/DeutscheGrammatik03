@@ -15,7 +15,12 @@ const GuessWordImproved = ({
     wordArr = word.split("");
   }
 
-  const [letterList, setLetterList] = useState(wordArr.map((item) => ""));
+  const [letterList, setLetterList] = useState(
+    wordArr.map((item) => {
+      if (item === " ") return " ";
+      return "";
+    })
+  );
   const [activeIndex, setActiveIndex] = useState(0);
   const [blinkAnimation, setBlinkAnimation] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
@@ -49,7 +54,11 @@ const GuessWordImproved = ({
               return 0;
             }
 
-            return prev + 1;
+            if (word[prev + 1] === " ") {
+              return prev + 2;
+            } else {
+              return prev + 1;
+            }
           });
         };
 
@@ -96,7 +105,7 @@ const GuessWordImproved = ({
   }, [activeIndex, letterList, focus, isCompleted]);
 
   useEffect(() => {
-    if (word === letterList.join("")) {
+    if (word.toLowerCase() === letterList.join("").toLowerCase()) {
       setIsCompleted(true);
       setBlinkAnimation(true);
 
@@ -113,7 +122,7 @@ const GuessWordImproved = ({
     }
 
     if (check) {
-      if (word !== letterList.join("")) {
+      if (word.toLowerCase() !== letterList.join("").toLowerCase()) {
         setStatus("wrong");
         setCheck(false);
       }
@@ -144,8 +153,10 @@ const GuessWordImproved = ({
 
   return (
     <div className="guess-word" style={guessStyle} ref={guessWordRef}>
-      {letterList.map((letter) => (
-        <p style={letterStyle}>{letter}</p>
+      {letterList.map((letter, index) => (
+        <p style={{ ...letterStyle, opacity: word[index] === " " ? 0 : 1 }}>
+          {letter}
+        </p>
       ))}
       <div className="blink-box" style={blinkBoxStyle}></div>
     </div>

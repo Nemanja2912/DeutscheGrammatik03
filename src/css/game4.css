@@ -7,12 +7,12 @@
 }
 
 .game4 .table {
-  width: 800px;
+  width: 950px;
 }
 
 .game4 .table .top {
   display: grid;
-  grid-template-columns: 150px repeat(5, 1fr);
+  grid-template-columns: 175px repeat(5, 1fr);
   gap: 2px;
 }
 
@@ -45,8 +45,9 @@
 .game4 .table .bottom {
   margin-top: 2px;
   display: grid;
-  grid-template-columns: 150px repeat(3, 1fr);
+  grid-template-columns: 175px repeat(3, 1fr);
   gap: 2px;
+  height: 100px;
 }
 
 .game4 .table .bottom .label,
@@ -69,6 +70,7 @@
   background-color: #d6d9db;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 7px;
 }
 
 .game4 .table .bottom .guess-box .line {
@@ -110,7 +112,44 @@
   background-color: #a4b51c;
 }
 
+.game4 .done {
+  margin-left: -10px;
+  color: #000;
+}
+
+.game4 .done .light {
+  color: #fff;
+}
+
+.game4 .done .bold {
+  font-weight: bold;
+}
+
+.game4 .bottom2 {
+  height: 50px !important;
+}
+
+.game4 .bottom2 .guess-box {
+  padding-bottom: 0px !important;
+}
+
+.game4 .bottom2 .guess-done .guess-word p:first-child {
+  text-transform: capitalize;
+}
+
 .game4 .guess-word {
   font-size: 20px;
+}
+
+.game4 .drag-element {
+  background-color: #5ac8f5;
+  padding: 7px 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+  cursor: pointer;
+}
+
+.game4 .drag-element:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
 }
 /*# sourceMappingURL=game4.css.map */

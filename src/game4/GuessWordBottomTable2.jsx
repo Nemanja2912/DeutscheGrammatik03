@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import GuessWordImproved from "./../UI/GuessWordImproved";
+import GuessWordImproved from "../UI/GuessWordImproved";
 
-const GuessWordBottomTable = ({
+const GuessWordBottomTable2 = ({
+  singleFinished,
   guessBox,
   obj,
   activeButton,
@@ -17,27 +18,22 @@ const GuessWordBottomTable = ({
   ]);
 
   return (
-    <div className="bottom">
+    <div className="bottom bottom2">
       <div className="label">
         <p>
-          Präsens- <br /> Formen <br /> bilden
+          Imperativ- <br /> Formen bilden
         </p>
       </div>
       {guessBox.map((label, index) => (
         <div
           className={`guess-box ${statusState[index][0] === "wrong" && "wrong"}
-              ${finished[index] && "correct"}`}
+              ${finished && "correct"}`}
           onClick={() => setFocusIndex(index)}
         >
-          <div className={`line ${finished[index] && "line-correct"}`}>
-            {label}-Form
-          </div>
-
-          <div className="guess">
-            <p className="guess-label">{label}</p>
-            {!finished[index] && (
+          <div className={`guess ${singleFinished[index] && "guess-done"}`}>
+            {!finished && (
               <GuessWordImproved
-                word={obj[activeButton].guess[index]}
+                word={obj[activeButton].guessImperativ[index]}
                 letterWidth={15}
                 letterHeight={30}
                 setStatus={(status) => {
@@ -65,7 +61,7 @@ const GuessWordBottomTable = ({
                 focus={index === focusIndex}
               />
             )}
-            {finished[index] && finishedElement[index]}
+            {finished && finishedElement[index]}
           </div>
         </div>
       ))}
@@ -73,4 +69,4 @@ const GuessWordBottomTable = ({
   );
 };
 
-export default GuessWordBottomTable;
+export default GuessWordBottomTable2;

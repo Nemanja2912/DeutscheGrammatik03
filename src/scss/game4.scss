@@ -6,11 +6,11 @@
   align-items: center;
 
   .table {
-    width: 800px;
+    width: 950px;
 
     .top {
       display: grid;
-      grid-template-columns: 150px repeat(5, 1fr);
+      grid-template-columns: 175px repeat(5, 1fr);
       gap: 2px;
 
       .label,
@@ -43,8 +43,9 @@
     .bottom {
       margin-top: 2px;
       display: grid;
-      grid-template-columns: 150px repeat(3, 1fr);
+      grid-template-columns: 175px repeat(3, 1fr);
       gap: 2px;
+      height: 100px;
 
       .label,
       .guess-box {
@@ -66,6 +67,7 @@
         background-color: #d6d9db;
         flex-direction: column;
         justify-content: space-between;
+        padding-bottom: 7px;
 
         .line {
           background-color: #5ac8f5;
@@ -109,7 +111,44 @@
     }
   }
 
+  .done {
+    margin-left: -10px;
+    color: #000;
+
+    .light {
+      color: #fff;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+  }
+
+  .bottom2 {
+    height: 50px !important;
+
+    .guess-box {
+      padding-bottom: 0px !important;
+    }
+
+    .guess-done .guess-word p:first-child {
+      text-transform: capitalize;
+    }
+  }
+
   .guess-word {
     font-size: 20px;
+  }
+
+  .drag-element {
+    background-color: #5ac8f5;
+    padding: 7px 15px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
+    }
   }
 }
