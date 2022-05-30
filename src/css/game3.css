@@ -2,24 +2,20 @@
   margin-top: 100px;
   width: 1000px;
 }
-
 .game3 .screen-wrapper {
   position: relative;
 }
-
 .game3 .image-interactive {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
 }
-
 .game3 .image-interactive .drop-boxes {
   display: flex;
   justify-content: center;
   gap: 25px;
 }
-
 .game3 .image-interactive .drop-boxes .drop-box {
   width: 225px;
   background-color: #d6d9db;
@@ -30,13 +26,11 @@
   text-align: center;
   color: #fff;
 }
-
 .game3 .image-interactive .images {
   display: flex;
   gap: 50px;
   justify-content: center;
 }
-
 .game3 .image-interactive .images .image {
   display: flex;
   flex-direction: column;
@@ -47,12 +41,10 @@
   top: 0;
   left: 0;
 }
-
 .game3 .image-interactive .images .image img {
   pointer-events: none;
   width: 100%;
 }
-
 .game3 .image-interactive .images .image .description {
   pointer-events: none;
   color: #000;
@@ -62,16 +54,17 @@
   background-color: #5ac8f5;
   padding: 10px;
 }
-
 .game3 .image-interactive .button {
-  animation-delay: 2s !important;
+  -webkit-animation-delay: 2s !important;
+          animation-delay: 2s !important;
   margin-top: -30px;
 }
-
 .game3 .button {
   font-size: 25px;
   background-color: #fff;
   color: #788287;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-weight: 700;
   margin: auto;
@@ -80,18 +73,36 @@
   border-radius: 10px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  animation-name: buttonShow;
-  animation-duration: 1s;
+  -webkit-animation-name: buttonShow;
+          animation-name: buttonShow;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   opacity: 0;
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
   transition: 0.5s;
 }
-
 .game3 .button:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
-
+@-webkit-keyframes buttonShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 @keyframes buttonShow {
   0% {
     opacity: 0;
@@ -108,7 +119,6 @@
     opacity: 1;
   }
 }
-
 .game3 .after-done-text {
   font-size: 22px;
   text-align: center;
@@ -118,13 +128,11 @@
   pointer-events: none;
   transition-delay: 1s;
 }
-
 .game3 .form-interactive {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .game3 .form-interactive .drop-zone {
   font-size: 18px;
   gap: 2px;
@@ -133,30 +141,24 @@
   grid-template-areas: ". double double ." ". . . .";
   height: 100px;
 }
-
 .game3 .form-interactive .drop-zone .double {
   grid-area: double;
 }
-
 .game3 .form-interactive .drop-zone .single-box {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .game3 .form-interactive .drop-zone .top {
   background-color: #788287;
   color: #fff;
 }
-
 .game3 .form-interactive .drop-zone .drop {
   background-color: #d6d9db;
 }
-
 .game3 .form-interactive .drop-zone .drop p {
   opacity: 0.2;
 }
-
 .game3 .form-interactive .drop-zone .inform {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -164,18 +166,15 @@
   gap: 2px;
   width: 350px;
 }
-
 .game3 .form-interactive .drop-zone .inform .top {
   grid-area: top;
 }
-
 .game3 .form-interactive .drop-zone .form {
   width: 175px;
   display: grid;
   gap: 2px;
   flex-direction: column;
 }
-
 .game3 .form-interactive .interactive-boxes {
   display: flex;
   position: absolute;
@@ -183,7 +182,6 @@
   gap: 20px;
   margin-top: 125px;
 }
-
 .game3 .form-interactive .interactive-boxes .box {
   font-size: 18px;
   width: 175px;
@@ -195,24 +193,20 @@
   background-color: #a4b51c;
   position: relative;
 }
-
 .game3 .form-interactive .interactive-boxes .enable {
   background-color: #5ac8f5;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
 .game3 .form-interactive .interactive-boxes .enable:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
-
 .game3 .erase-part {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   font-size: 20px;
   gap: 2px;
 }
-
 .game3 .erase-part .single-box {
   display: flex;
   align-items: center;
@@ -220,29 +214,28 @@
   width: 175px;
   height: 50px;
 }
-
 .game3 .erase-part .blue {
   background-color: #5ac8f5;
   color: #fff;
 }
-
 .game3 .erase-part .gray {
   background-color: #d6d9db;
   color: #a6acb0;
 }
-
 .game3 .erase-part .main {
   color: #000;
 }
-
 .game3 .erase-part svg {
   width: 100px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   pointer-events: none;
 }
-
 .game3 .erase-part .wrapper {
   cursor: pointer;
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   position: relative;
   top: 0;
@@ -258,7 +251,6 @@
   top: 100px;
   left: 250px;
 }
-
 .interactive-position .sentences {
   display: flex;
   flex-direction: column;
@@ -266,7 +258,6 @@
   font-size: 20px;
   margin-bottom: 150px;
 }
-
 .interactive-position .drop-zone {
   background-color: #bbc0c3;
   border-radius: 10px;
@@ -274,27 +265,23 @@
   height: 90px;
   transition: 0.5s;
 }
-
 .interactive-position .drop-zone .line {
   font-size: 20px;
   display: flex;
   gap: 10px;
   align-items: center;
 }
-
 .interactive-position .drop-zone .line .blank {
   background-color: #fff;
   width: 150px;
   border-radius: 10px;
   height: 35px;
 }
-
 .interactive-position .drop-zone .move-element {
   display: flex;
   margin-top: 15px;
   gap: 15px;
 }
-
 .interactive-position .drop-zone .move-element p {
   background-color: #a4b51c;
   width: 150px;
@@ -310,18 +297,43 @@
   border-radius: 10px;
   height: 35px;
 }
-
 .interactive-position .enable {
   height: 135px;
 }
-
 .interactive-position .enable .move-element p {
   transition: 0.5s box-shadow;
   background-color: #5ac8f5;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
 .interactive-position .enable .move-element p:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
-/*# sourceMappingURL=game3.css.map */
+
+.done-button {
+  font-size: 25px;
+  background-color: #fff;
+  color: #788287;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 700;
+  margin: auto;
+  margin-top: -120px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  -webkit-animation-name: buttonShow;
+          animation-name: buttonShow;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  transition: 0.5s;
+}
+.done-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+}

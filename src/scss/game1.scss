@@ -294,50 +294,6 @@
     pointer-events: none;
     z-index: 10000;
   }
-
-  .button-submit {
-    font-size: 25px;
-    background-color: #fff;
-    color: #788287;
-    width: max-content;
-    font-weight: 700;
-    margin: auto;
-    margin-top: 20px;
-    padding: 20px 25px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    animation-name: buttonShow;
-    animation-duration: 1s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    animation-delay: 1s;
-    transition: 0.5s;
-
-    &:hover {
-      box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
-    }
-  }
-
-  @keyframes buttonShow {
-    0% {
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    75% {
-      transform: scale(1.15);
-      opacity: 1;
-    }
-
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
 }
 
 .sentence-part {
@@ -517,4 +473,52 @@
     transition: 0.5s;
     transition-delay: 0.5s;
   }
+}
+
+.button-submit {
+  font-size: 25px;
+  background-color: #fff;
+  color: #788287;
+  width: max-content;
+  font-weight: 700;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation-name: buttonShow;
+  animation-duration: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  transition: 0.5s;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+  }
+}
+
+@keyframes buttonShow {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.end-button {
+  margin-top: 120px;
 }

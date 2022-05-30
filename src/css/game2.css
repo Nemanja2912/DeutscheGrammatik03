@@ -2,8 +2,9 @@
   margin-top: 80px;
   display: flex;
 }
-
 .game2 .choose-option {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   display: flex;
   flex-direction: column;
@@ -12,33 +13,28 @@
   left: 0;
   transition: 0.5s;
 }
-
 .game2 .choose-option .group {
   display: flex;
   align-items: center;
 }
-
 .game2 .choose-option .group .word-box {
   font-size: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
 .game2 .choose-option .group .word-box .word {
   border-radius: 10px;
   padding: 10px;
   background-color: #d6d9db;
   width: 175px;
 }
-
 .game2 .choose-option .group .bracket {
   font-size: 150px;
   color: #798388;
   margin-top: -10px;
   line-height: 100px;
 }
-
 .game2 .choose-option .group .interactive-box {
   color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -54,7 +50,6 @@
   transition: 0.5s;
   position: relative;
 }
-
 .game2 .choose-option .group .interactive-box .vertical {
   position: absolute;
   right: 25px;
@@ -65,19 +60,15 @@
   transform: rotate(270deg);
   transition: 0.5s;
 }
-
 .game2 .choose-option .group .interactive-box .horizontal {
   transition: 0.5s;
 }
-
 .game2 .choose-option .group .interactive-box .bold {
   font-weight: bold;
 }
-
 .game2 .choose-option .group .interactive-box:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
-
 .game2 .choose-option .back-button {
   background-color: #d6d9db;
   position: absolute;
@@ -93,21 +84,30 @@
   cursor: pointer;
   opacity: 0;
   transition: box-shadow 0.25s;
-  animation-name: opacity;
-  animation-duration: 0.5s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: opacity;
+          animation-name: opacity;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
-
 .game2 .choose-option .back-button img {
   height: auto;
   width: 100%;
 }
-
 .game2 .choose-option .back-button:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
-
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes opacity {
   0% {
     opacity: 0;
@@ -116,7 +116,6 @@
     opacity: 1;
   }
 }
-
 .game2 .interactive-screen {
   display: flex;
   flex-direction: column;
@@ -124,35 +123,33 @@
   position: absolute;
   transition: 0.5s;
 }
-
 .game2 .interactive-screen .step {
   display: flex;
   font-size: 22px;
   align-items: center;
   gap: 50px;
 }
-
 .game2 .interactive-screen .step .left {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-
 .game2 .interactive-screen .step .left p {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
 }
-
 .game2 .interactive-screen .step .left svg {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   height: 90px;
 }
-
 .game2 .interactive-screen .step .right {
   display: flex;
   align-items: center;
   gap: 25px;
 }
-
 .game2 .interactive-screen .step .box {
   padding: 10px 20px;
   border-radius: 10px;
@@ -160,11 +157,12 @@
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
   transition: 0.5s linear;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   display: flex;
   gap: 5px;
 }
-
 .game2 .interactive-screen .step .box:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px;
 }
@@ -181,7 +179,6 @@
   justify-content: center;
   z-index: 100;
 }
-
 .step-image .overlay {
   display: flex;
   flex-direction: column;
@@ -189,13 +186,12 @@
   gap: 0px;
   position: relative;
 }
-
 .step-image .overlay .image {
   height: 500px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-
 .step-image .overlay .description {
   background-color: #5ac8f5;
   font-size: 18px;
@@ -203,7 +199,6 @@
   border-radius: 10px;
   text-align: center;
 }
-
 .step-image .overlay .close {
   background-color: #85a70e;
   height: 40px;
@@ -218,7 +213,6 @@
   transform: translate(50%, -50%);
   cursor: pointer;
 }
-
 .step-image .overlay .close img {
   width: 15px;
   height: 100%;
@@ -228,8 +222,6 @@
   cursor: default !important;
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 15px !important;
 }
-
 .no-pointer:hover {
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 15px !important;
 }
-/*# sourceMappingURL=game2.css.map */

@@ -103,7 +103,7 @@ const group = [
     ],
   },
   {
-    word: ["Steight ein", "Helft"],
+    word: ["Steigt ein", "Helft"],
     optionWord: ["einsteigen", "helfen"],
     pronoun: "ihr",
     guessWord: [
@@ -250,7 +250,7 @@ const group = [
 
 // const initLevelStep =
 
-const Game2 = () => {
+const Game2 = ({ nextLesson }) => {
   const [optionActive, setOptionActive] = useState(0);
   const [miniBox, setMiniBox] = useState(false);
   const [choiceDisable, setChoiceDisable] = useState(false);
@@ -267,6 +267,7 @@ const Game2 = () => {
   const [helpOverlay, setHelpOverlay] = useState(false);
   const [helpFingerPosition, setHelpFingerPosition] = useState("init");
   const [preventHelp, setPreventHelp] = useState(false);
+  const [endButton, setEndButton] = useState(false);
 
   const optionRefs = [useRef(null), useRef(null), useRef(null)];
 
@@ -317,69 +318,98 @@ const Game2 = () => {
     }
   }, [helpOverlay]);
 
+  useEffect(() => {
+    let isDone = true;
+
+    for (let i = 0; i < finished.length; i++) {
+      if (!finished[i]) {
+        isDone = false;
+        break;
+      }
+    }
+
+    if (isDone) {
+      setPreventHelp(true);
+      setEndButton(true);
+    }
+
+    console.log(finished);
+  }, [finished]);
+
   return (
-    <div className="game2">
-      <ChooseOption
-        optionActive={optionActive}
-        optionRefs={optionRefs}
-        setOptionActive={setOptionActive}
-        group={group}
-        miniBox={miniBox}
-        setMiniBox={setMiniBox}
-        choiceDisable={choiceDisable}
-        finished={finished}
-        setKeyboard={() => {
-          if (miniBox) {
-            // setKeyboard(false);
-          }
-        }}
-      />
-      <InteractiveScreen
-        display={optionActive === 0 || !miniBox}
-        choiceLevel={0}
-        group={group}
-        miniBox={miniBox}
-        choiceDisable={choiceDisable}
-        keyboard={keyboard}
-        setKeyboard={setKeyboard}
-        setChoiceDisable={setChoiceDisable}
-        handleFinished={() => handleFinished(0)}
-      />
-      <InteractiveScreen
-        display={optionActive === 1 || !miniBox}
-        choiceLevel={1}
-        group={group}
-        miniBox={miniBox}
-        choiceDisable={choiceDisable}
-        keyboard={keyboard}
-        setKeyboard={setKeyboard}
-        setChoiceDisable={setChoiceDisable}
-        handleFinished={() => handleFinished(1)}
-      />
-      <InteractiveScreen
-        display={optionActive === 2 || !miniBox}
-        choiceLevel={2}
-        group={group}
-        miniBox={miniBox}
-        choiceDisable={choiceDisable}
-        keyboard={keyboard}
-        setKeyboard={setKeyboard}
-        setChoiceDisable={setChoiceDisable}
-        handleFinished={() => handleFinished(2)}
-      />
-      {(!miniBox || finished[optionActive]) && (
-        <>
-          <StatusBar
-            infoText={infoText}
-            infoOverlay={infoOverlay}
-            setInfoOverlay={setInfoOverlay}
-            setHelpOverlay={setHelpOverlay}
-            preventHelp={preventHelp}
-            helpFingerPosition={helpFingerPosition}
-          />
-        </>
+    <>
+      <div className="game2">
+        <ChooseOption
+          optionActive={optionActive}
+          optionRefs={optionRefs}
+          setOptionActive={setOptionActive}
+          group={group}
+          miniBox={miniBox}
+          setMiniBox={setMiniBox}
+          choiceDisable={choiceDisable}
+          finished={finished}
+          setKeyboard={() => {
+            if (miniBox) {
+              // setKeyboard(false);
+            }
+          }}
+        />
+        <InteractiveScreen
+          display={optionActive === 0 || !miniBox}
+          choiceLevel={0}
+          group={group}
+          miniBox={miniBox}
+          choiceDisable={choiceDisable}
+          keyboard={keyboard}
+          setKeyboard={setKeyboard}
+          setChoiceDisable={setChoiceDisable}
+          handleFinished={() => handleFinished(0)}
+        />
+        <InteractiveScreen
+          display={optionActive === 1 || !miniBox}
+          choiceLevel={1}
+          group={group}
+          miniBox={miniBox}
+          choiceDisable={choiceDisable}
+          keyboard={keyboard}
+          setKeyboard={setKeyboard}
+          setChoiceDisable={setChoiceDisable}
+          handleFinished={() => handleFinished(1)}
+        />
+        <InteractiveScreen
+          display={optionActive === 2 || !miniBox}
+          choiceLevel={2}
+          group={group}
+          miniBox={miniBox}
+          choiceDisable={choiceDisable}
+          keyboard={keyboard}
+          setKeyboard={setKeyboard}
+          setChoiceDisable={setChoiceDisable}
+          handleFinished={() => handleFinished(2)}
+        />
+        {(!miniBox || finished[optionActive]) && (
+          <>
+            <StatusBar
+              infoText={infoText}
+              infoOverlay={infoOverlay}
+              setInfoOverlay={setInfoOverlay}
+              setHelpOverlay={setHelpOverlay}
+              preventHelp={preventHelp}
+              helpFingerPosition={helpFingerPosition}
+            />
+          </>
+        )}
+      </div>
+      {endButton && (
+        <div
+          style={{ marginTop: 80 }}
+          className="button-submit end-button"
+          onClick={nextLesson}
+        >
+          WEITER
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

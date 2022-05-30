@@ -12,33 +12,30 @@
   transition: 1s;
   overflow: hidden;
 }
-
 .menu .top {
   padding-top: 15vh;
   transition: 1s;
 }
-
 .menu .top p {
   font-size: 35px;
   font-weight: 700;
   text-transform: uppercase;
   transition: 1s;
 }
-
 .menu .title {
   color: #fff;
   cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   text-transform: uppercase;
   line-height: 60px;
 }
-
 .menu .subtitle {
   color: #374105;
   text-transform: uppercase;
   line-height: 20px;
 }
-
 .menu .text {
   color: #fff;
   font-size: 25px;
@@ -46,11 +43,12 @@
   font-weight: 700;
   transition: 1s;
 }
-
 .menu .button {
   font-size: 25px;
   background-color: #fff;
   color: #788287;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-weight: 700;
   margin-top: 20px;
@@ -58,18 +56,20 @@
   border-radius: 10px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  animation-name: buttonShow;
-  animation-duration: 1s;
+  -webkit-animation-name: buttonShow;
+          animation-name: buttonShow;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   opacity: 0;
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
   transition: 0.5s;
 }
-
 .menu .button:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
-
 .menu .info {
   position: absolute;
   top: 10px;
@@ -80,22 +80,18 @@
   line-height: 26px;
   text-align: right;
 }
-
 .menu .info img {
   transition: 1s;
   width: 60%;
 }
-
 .menu .info-small {
   font-size: 12px;
   top: 10px;
   line-height: 18px;
 }
-
 .menu .info-small img {
   width: 60%;
 }
-
 .menu .bottom {
   position: absolute;
   bottom: 25px;
@@ -104,14 +100,12 @@
   transition: 0.5s;
   transition-delay: 0.2s;
 }
-
 .menu .bottom p {
   font-weight: 700;
   color: #374105;
   font-size: 15px;
   cursor: pointer;
 }
-
 .menu .bottom p:first-child {
   margin-bottom: 5px;
 }
@@ -124,11 +118,9 @@
 .move {
   padding-top: 1vh !important;
 }
-
 .move p {
   font-size: 20px !important;
 }
-
 .move .title {
   opacity: 0;
   line-height: 10px;
@@ -137,21 +129,23 @@
 .move2 {
   padding-top: 0px !important;
 }
-
 .move2 .subtitle {
   margin-top: 0px;
 }
-
 .move2 p {
   font-size: 15px !important;
 }
 
 .hidden {
   opacity: 0;
-  animation-name: hide;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
+  -webkit-animation-name: hide;
+          animation-name: hide;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 .buttonHidden {
@@ -164,21 +158,18 @@
   transition: 1s;
   opacity: 0;
 }
-
 .next .title {
   font-size: 20px;
   font-weight: 700;
   transition: 1s;
   line-height: 28px;
 }
-
 .next .subtitle {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 10px;
   margin-top: 15px;
 }
-
 .next p {
   font-size: 20px;
 }
@@ -188,6 +179,8 @@
   font-size: 25px;
   background-color: #fff;
   color: #788287;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-weight: 700;
   margin-top: 50px;
@@ -197,33 +190,37 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: 0.5s;
 }
-
 .button2:hover {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
 
 .nextShow {
   display: block;
-  animation-name: textAppear;
-  animation-duration: 1s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: textAppear;
+          animation-name: textAppear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .nextShow2 {
   display: block;
   opacity: 1;
 }
-
 .nextShow2 .title {
   font-size: 15px;
 }
-
 .nextAnimation {
   margin-top: 100px;
-  animation-name: textMoveBack;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: textMoveBack;
+          animation-name: textMoveBack;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .nextShow3 {
@@ -231,21 +228,25 @@
   opacity: 1;
   margin-top: 0px !important;
 }
-
 .nextShow3 .title {
   font-size: 15px;
   transition: 1s;
-  animation-name: fontIncrease;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: fontIncrease;
+          animation-name: fontIncrease;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   color: rgba(255, 255, 255, 0.712);
 }
-
 .titleReduce {
   font-size: 20px;
-  animation-name: fontDecrease;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: fontDecrease;
+          animation-name: fontDecrease;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .active {
@@ -282,6 +283,15 @@
   opacity: 1 !important;
 }
 
+@-webkit-keyframes fontIncrease {
+  0% {
+    font-size: 15px;
+  }
+  100% {
+    font-size: 20px;
+  }
+}
+
 @keyframes fontIncrease {
   0% {
     font-size: 15px;
@@ -290,7 +300,14 @@
     font-size: 20px;
   }
 }
-
+@-webkit-keyframes fontDecrease {
+  0% {
+    font-size: 20px;
+  }
+  100% {
+    font-size: 15px;
+  }
+}
 @keyframes fontDecrease {
   0% {
     font-size: 20px;
@@ -299,7 +316,22 @@
     font-size: 15px;
   }
 }
-
+@-webkit-keyframes buttonShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 @keyframes buttonShow {
   0% {
     opacity: 0;
@@ -316,7 +348,16 @@
     opacity: 1;
   }
 }
-
+@-webkit-keyframes textAppear {
+  0% {
+    opacity: 0;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 100px;
+  }
+}
 @keyframes textAppear {
   0% {
     opacity: 0;
@@ -327,7 +368,14 @@
     margin-top: 100px;
   }
 }
-
+@-webkit-keyframes textMoveBack {
+  0% {
+    margin-top: 100px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
 @keyframes textMoveBack {
   0% {
     margin-top: 100px;
@@ -336,7 +384,6 @@
     margin-top: 0px;
   }
 }
-
 .titles {
   overflow: hidden;
   height: 22px;
@@ -365,7 +412,6 @@
   font-size: 20px;
   line-height: 32px;
 }
-
 .credits .close img {
   position: absolute;
   right: 5vw;
@@ -377,7 +423,6 @@
   transition: 0.5s;
   cursor: pointer;
 }
-
 .credits .close img:hover {
   transform: rotate(90deg) scale(1.1);
 }
@@ -386,4 +431,3 @@
   opacity: 1;
   pointer-events: inherit;
 }
-/*# sourceMappingURL=style.css.map */

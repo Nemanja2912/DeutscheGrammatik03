@@ -3,13 +3,11 @@
   src: url(../assets/font/GoetheGothic.ttf);
   font-weight: 400;
 }
-
 @font-face {
   font-family: Goethe;
   src: url(../assets/font/GoetheGothicBold.ttf);
   font-weight: 700;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -22,13 +20,16 @@ body {
   overflow: hidden;
   -webkit-touch-callout: none;
   /* iOS Safari */
+  -webkit-user-select: none;
   /* Safari */
   /* Konqueror HTML */
+  -moz-user-select: none;
   /* Old versions of Firefox */
+  -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
   /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+               supported by Chrome, Edge, Opera and Firefox */
 }
 
 .zoom {
@@ -37,9 +38,11 @@ body {
 }
 
 img {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
   user-drag: none;
   -webkit-touch-callout: none;
 }
-/*# sourceMappingURL=general.css.map */

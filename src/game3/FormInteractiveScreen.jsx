@@ -202,7 +202,6 @@ const FormInteractiveScreen = ({ display, nextLevel }) => {
             text={text[index]}
             showStatus={step === index + 1}
             increaseStep={() => {
-              console.log(step, index + 2);
               setStep(index + 2);
             }}
           />

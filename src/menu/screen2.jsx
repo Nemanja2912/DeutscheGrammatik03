@@ -173,15 +173,20 @@ const Screen2 = ({ movePos, changePos, item, changeItem, navButtonRef }) => {
                 transition: "0.5s",
               }}
             >
-              {item === 0
-                ? "Du arbeitest mit Situationen. In diesen Situationen gibt es eine besondere grammatische Form."
-                : item === 1
-                ? "Du machst 3 Schritte und bildest den Imperativ."
-                : item === 2
-                ? "Du hast viel mit Sätzen gearbeitet und kannst selbst eine Regel formulieren."
-                : item === 3
-                ? "In dieser Übung bildest du Imperativ-Formen und arbeitest mit Sätzen."
-                : "In dieser Übung schreibst du die richtige Imperativ-Form, dann siehst du dir die Animation an."}
+              {item === 0 ? (
+                "Du arbeitest mit Situationen. In diesen Situationen gibt es eine besondere grammatische Form."
+              ) : item === 1 ? (
+                "Du machst 3 Schritte und bildest den Imperativ."
+              ) : item === 2 ? (
+                "Du hast viel mit Sätzen gearbeitet und kannst selbst eine Regel formulieren."
+              ) : item === 3 ? (
+                "In dieser Übung bildest du Imperativ-Formen und arbeitest mit Sätzen."
+              ) : (
+                <>
+                  In dieser Übung schreibst du die richtige Imperativ-Form,{" "}
+                  <br /> dann siehst du dir die Animation an.
+                </>
+              )}
             </p>
           </>
         )}

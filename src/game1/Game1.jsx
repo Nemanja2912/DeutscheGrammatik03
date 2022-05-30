@@ -135,7 +135,7 @@ const imageObj = [
 
 const optionButtons = ["Tipp", "Aufforderung", "Bitte"];
 
-const Game1 = () => {
+const Game1 = ({ nextLesson }) => {
   const [firstScreen, setFirstScreen] = useState(true);
   const [imagePos, setImagePos] = useState([0, 0]);
   const [imageWidth, setImageWidth] = useState(200);
@@ -521,6 +521,8 @@ const Game1 = () => {
           if (part2BlueBox[imageObj[index].part2Answer][0]) {
             boxes.children[1].innerHTML = element.children[1].innerHTML;
 
+            console.log("test1");
+
             element.style.bottom =
               initY +
               25 * index -
@@ -540,6 +542,8 @@ const Game1 = () => {
               25 * index -
               boxes.children[0].getBoundingClientRect().bottom +
               "px";
+
+            console.log("test2");
 
             setPart2BlueBox((prev) => {
               prev[imageObj[index].part2Answer][0] = true;
@@ -1041,11 +1045,7 @@ const Game1 = () => {
                   </div>
                 </div>
               </div>
-              <div
-                className="render-images"
-                ref={imageListRef}
-                onClick={() => console.log("sakldasd")}
-              >
+              <div className="render-images" ref={imageListRef}>
                 {imageObj.map((item, index) => (
                   <div
                     className="wrapper"
@@ -1088,7 +1088,7 @@ const Game1 = () => {
           </div>
         </div>
       )}
-      {sentencePart && <Sentence />}
+      {sentencePart && <Sentence nextLesson={nextLesson} />}
     </>
   );
 };

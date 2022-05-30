@@ -4,8 +4,10 @@ const GuessWordImproved = ({
   word,
   letterWidth,
   letterHeight,
+  status,
   setStatus,
   focus,
+  help,
 }) => {
   let wordArr;
   let keyboardEvent = useRef(null);
@@ -105,12 +107,59 @@ const GuessWordImproved = ({
   }, [activeIndex, letterList, focus, isCompleted]);
 
   useEffect(() => {
+    if (help) {
+      let index;
+
+      for (let i = 0; i < letterList.length; i++) {
+        if (letterList[i] !== word[i]) {
+          index = i;
+          break;
+        }
+      }
+
+      const letter = word[index];
+
+      setActiveIndex((prev) => {
+        if (index === wordArr.length - 1) {
+          return 0;
+        }
+
+        if (word[index + 1] === " ") {
+          return index + 2;
+        } else {
+          return index + 1;
+        }
+      });
+
+      setLetterList((prev) => {
+        prev[index] = letter;
+
+        return [...prev];
+      });
+
+      // window.dispatchEvent(new KeyboardEvent("keydown", { key: letter }));
+    }
+  }, [help]);
+
+  useEffect(() => {
+    if (status === "correct") return;
+
     if (word.toLowerCase() === letterList.join("").toLowerCase()) {
       setIsCompleted(true);
       setBlinkAnimation(true);
 
       clearInterval(blinkInterval.current);
       window.removeEventListener("keydown", keyboardEvent.current);
+
+      setLetterList((prev) => {
+        for (let i = 0; i < prev.length; i++) {
+          if (prev[i] !== word[i]) {
+            prev[i] = word[i];
+          }
+        }
+
+        return [...prev];
+      });
 
       setStatus("correct");
     }

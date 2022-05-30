@@ -145,8 +145,6 @@ const Keyboard = ({
                 key={letterIndex}
                 className="button"
                 onClick={() => {
-                  console.log(button);
-
                   if (letter.props?.btn === "del") {
                     window.dispatchEvent(
                       new KeyboardEvent("keydown", { key: "Backspace" })

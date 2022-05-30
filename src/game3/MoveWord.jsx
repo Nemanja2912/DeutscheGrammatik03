@@ -18,22 +18,12 @@ const MoveWord = ({
     if (stopMove) return;
 
     if (!isMeasured) {
-      const parentElement = wordRefs[0].current.parentNode;
-      const paddingLeft = parseFloat(
-        window
-          .getComputedStyle(parentElement, null)
-          .getPropertyValue("padding-left")
-      );
-
-      let breakPoint = paddingLeft;
+      let breakPoint = 0;
       for (let i = 1; i <= text[0].position; i++) {
         breakPoint += wordRefs[i].current.getBoundingClientRect().width;
-        console.log(i);
       }
-      setStopPoint(breakPoint + 5);
+      setStopPoint(breakPoint + 8);
       setIsMeasured(true);
-
-      console.log(breakPoint);
     }
 
     if (move >= stopPoint && isMeasured) {
@@ -57,7 +47,7 @@ const MoveWord = ({
 
       const exclamation = document.createElement("p");
       exclamation.innerHTML = "!";
-      exclamation.style.marginLeft = "-5px";
+      exclamation.style.marginLeft = "-4px";
 
       wordRefs[wordRefs.length - 1].current.parentNode.append(exclamation);
     } else {

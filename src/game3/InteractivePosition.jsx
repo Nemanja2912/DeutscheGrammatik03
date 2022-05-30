@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Indicator from "../UI/Indicator";
 import StatusBar from "../UI/StatusBar";
 
-const InteractivePosition = ({ display }) => {
+const InteractivePosition = ({ display, nextLevel }) => {
   const blankRef = useRef(null);
   const elementRef = useRef(null);
 
@@ -62,6 +62,7 @@ const InteractivePosition = ({ display }) => {
         element.style.top = dropZone.top - initY + "px";
 
         setFinished(true);
+        nextLevel();
       } else {
         element.style.left = 0 + "px";
         element.style.top = 0 + "px";

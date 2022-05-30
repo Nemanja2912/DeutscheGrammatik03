@@ -145,8 +145,6 @@ const InteractiveScreen = ({
       index = activeOption;
     }
 
-    console.log("index:", index);
-
     const currentLevel = level[index];
 
     if (currentLevel === -1 || activeOption !== index) {
@@ -220,10 +218,8 @@ const InteractiveScreen = ({
   useEffect(() => {
     if (level[activeOption] === 0) {
       setHelpFingerPosition("disable");
-      console.log("disable");
     } else {
       setHelpFingerPosition("init");
-      console.log("init");
     }
   }, [level, activeOption]);
 

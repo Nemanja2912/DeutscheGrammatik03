@@ -32,20 +32,54 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Menu
+      <Menu
         navMenuItem={navMenuItem}
         setNavMenuItem={setNavMenuItem}
         navButtonRef={navButtonRef}
         menuRef={menuRef}
-      /> */}
+      />
 
-      {/* {navMenuItem === 0 && <Game1 />}
-      {navMenuItem === 1 && <Game2 />}
-      {navMenuItem === 2 && <Game3 />}
-      {navMenuItem === 3 && <Game4 />}
-      {navMenuItem === 4 && <Game5 />} */}
-
-      <Game4 />
+      {navMenuItem === 0 && (
+        <Game1
+          nextLesson={() => {
+            menuRef.current.click();
+            setTimeout(() => {
+              navButtonRef[1].current.click();
+            }, 0);
+          }}
+        />
+      )}
+      {navMenuItem === 1 && (
+        <Game2
+          nextLesson={() => {
+            menuRef.current.click();
+            setTimeout(() => {
+              navButtonRef[2].current.click();
+            }, 0);
+          }}
+        />
+      )}
+      {navMenuItem === 2 && (
+        <Game3
+          nextLesson={() => {
+            menuRef.current.click();
+            setTimeout(() => {
+              navButtonRef[3].current.click();
+            }, 0);
+          }}
+        />
+      )}
+      {navMenuItem === 3 && (
+        <Game4
+          nextLesson={() => {
+            menuRef.current.click();
+            setTimeout(() => {
+              navButtonRef[4].current.click();
+            }, 0);
+          }}
+        />
+      )}
+      {navMenuItem === 4 && <Game5 />}
     </div>
   );
 }

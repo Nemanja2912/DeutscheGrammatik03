@@ -109,7 +109,6 @@ const ImageInteractiveScreen = ({ display, nextLevel }) => {
       if (!finished[dropBoxes[i].answer]) {
         index = i;
 
-        console.log(finished);
         break;
       }
     }
@@ -210,7 +209,7 @@ const ImageInteractiveScreen = ({ display, nextLevel }) => {
             className="after-done-text"
             style={{ opacity: showButton ? 1 : 0 }}
           >
-            Der imperative hat diese drei Funktionen.
+            Der imperativ hat diese drei Funktionen.
           </div>
 
           {showButton && (

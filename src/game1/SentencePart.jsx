@@ -29,7 +29,7 @@ const sentences = [
   },
 ];
 
-const Sentence = () => {
+const Sentence = ({ nextLesson }) => {
   const [completed, setCompleted] = useState([
     false,
     false,
@@ -52,6 +52,8 @@ const Sentence = () => {
 
   const sentencePartRef = useRef(null);
 
+  const [endButton, setEndButton] = useState(false);
+
   useEffect(() => {
     let finished = true;
 
@@ -64,6 +66,11 @@ const Sentence = () => {
 
     if (finished) {
       setIsDone(true);
+
+      setTimeout(() => {
+        setEndButton(true);
+      }, 1000);
+
       setPreventHelp(true);
     }
   }, [completed]);
@@ -184,7 +191,14 @@ const Sentence = () => {
             </div>
           </div>
         </div>
+
+        {endButton && (
+          <div className="button-submit end-button" onClick={nextLesson}>
+            WEITER
+          </div>
+        )}
       </div>
+
       <StatusBar
         infoText={infoText}
         infoOverlay={infoOverlay}

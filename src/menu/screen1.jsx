@@ -24,7 +24,10 @@ const Screen1 = ({ movePos }) => {
       {textNone ? (
         ""
       ) : (
-        <p className={`text ${movePos !== 0 ? "hidden" : ""}`}>
+        <p
+          className={`text ${movePos !== 0 ? "hidden" : ""}`}
+          style={{ textTransform: "uppercase" }}
+        >
           Wie bildet man den Imperativ? Dafür gibt es eine Regel. <br />
           Diese Regel kannst du in dieser Lektion lernen oder wiederholen.
         </p>

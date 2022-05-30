@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import GuessWordImproved from "./../UI/GuessWordImproved";
 
 const GuessWordBottomTable = ({
@@ -8,6 +8,8 @@ const GuessWordBottomTable = ({
   finished,
   setFinished,
   finishedElement,
+  labelActive,
+  help,
 }) => {
   const [focusIndex, setFocusIndex] = useState(0);
   const [statusState, setStatusState] = useState([
@@ -15,10 +17,34 @@ const GuessWordBottomTable = ({
     ["init"],
     ["init"],
   ]);
+  const [helpFocus, setHelpFocus] = useState([false, false, false]);
+
+  useEffect(() => {
+    if (help) {
+      setHelpFocus((prev) => {
+        prev[focusIndex] = true;
+
+        return [...prev];
+      });
+
+      setTimeout(() => {
+        setHelpFocus((prev) => {
+          prev[focusIndex] = false;
+
+          return [...prev];
+        });
+      }, 0);
+    }
+  }, [help]);
 
   return (
     <div className="bottom">
-      <div className="label">
+      <div
+        style={{
+          backgroundColor: labelActive ? "#5ac8f5" : "#9aa1a5",
+        }}
+        className="label"
+      >
         <p>
           Präsens- <br /> Formen <br /> bilden
         </p>
@@ -37,9 +63,11 @@ const GuessWordBottomTable = ({
             <p className="guess-label">{label}</p>
             {!finished[index] && (
               <GuessWordImproved
+                help={helpFocus[index]}
                 word={obj[activeButton].guess[index]}
                 letterWidth={15}
                 letterHeight={30}
+                status={statusState[index][0]}
                 setStatus={(status) => {
                   setStatusState((prev) => {
                     prev[index] = [status];
@@ -47,15 +75,12 @@ const GuessWordBottomTable = ({
                     return [...prev];
                   });
 
-                  console.log(status, "status");
-
                   if (status === "correct") {
                     setFinished(index);
 
                     for (let i = 0; i < statusState.length; i++) {
                       if (statusState[i][0] !== "correct") {
                         setFocusIndex(i);
-                        console.log("?");
 
                         break;
                       }

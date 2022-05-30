@@ -163,8 +163,6 @@ const Line = ({ sentence, secondIndex = 3, onCompleted, startHelp }) => {
       element.getBoundingClientRect().width / 2 +
       "px";
 
-    console.log(blankRef.current);
-
     setTimeout(() => {
       cloneRef.current.style.transition = ".25s";
       cloneRef.current.style.left = 0 + "px";

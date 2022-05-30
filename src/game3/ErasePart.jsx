@@ -79,7 +79,7 @@ const ErasePart = ({
 
             if (!stopMove) {
               setMove((prev) => {
-                return prev + 0.25;
+                return prev + 0.8;
               });
             }
           } else {
@@ -87,7 +87,7 @@ const ErasePart = ({
 
             setOpacity((prev) => {
               if (prev[i] >= 1) prev[i] = 1;
-              else prev[i] += 0.005;
+              else prev[i] += 0.025;
 
               return [...prev];
             });
