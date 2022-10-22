@@ -87,7 +87,7 @@ const group = [
             <b>Probier</b> mal dieses Kleid <b>an!</b>
           </>
         ),
-        img: Image2a,
+        img: Image1a,
         sound: Audio1a,
       },
       {
@@ -97,7 +97,7 @@ const group = [
             <b>Fahr</b> geradeaus!
           </>
         ),
-        img: Image1a,
+        img: Image1b,
         sound: Audio1b,
       },
     ],

@@ -32,6 +32,10 @@ const Line = ({ sentence, secondIndex = 3, onCompleted, startHelp }) => {
         cloneRef.current.style.left =
           initEvent.target.getBoundingClientRect().left - initElementX + "px";
 
+        if (initEvent.target.innerHTML === "Geben") {
+          cloneRef.current.children[1].innerHTML += "!";
+        }
+
         initEvent.target.parentNode.children[secondIndex].style.opacity = "0.5";
       } else {
         cloneRef.current.children[1].innerHTML = initEvent.target.innerHTML;
@@ -46,12 +50,18 @@ const Line = ({ sentence, secondIndex = 3, onCompleted, startHelp }) => {
           initElementX +
           "px";
 
+        if (initEvent.target.parentNode.children[0].innerHTML === "Geben") {
+          cloneRef.current.children[1].innerHTML += "!";
+        }
+
         initEvent.target.parentNode.children[0].style.opacity = "0.5";
       }
     } else {
-      cloneRef.current.children[0].innerHTML = initEvent.target.innerHTML;
+      cloneRef.current.children[0].innerHTML = initEvent.target.innerHTML + "!";
       cloneRef.current.style.left =
         initEvent.target.getBoundingClientRect().left - initElementX + "px";
+
+      console.log(initEvent.target.innerHTML);
     }
 
     cloneRef.current.style.top =

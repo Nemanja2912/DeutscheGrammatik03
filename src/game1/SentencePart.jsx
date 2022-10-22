@@ -12,7 +12,7 @@ const sentences = [
     secondIndex: 1,
   },
   {
-    sentence: "Steigt lieber schon ein.",
+    sentence: "Steigt lieber schon ein!",
     secondIndex: 3,
   },
   {

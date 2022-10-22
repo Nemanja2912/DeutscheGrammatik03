@@ -28,7 +28,7 @@ const obj = [
       <p className="done">helfen</p>,
     ],
     guessImperativ: ["Hilf", "Helft", "Helfen Sie"],
-    finished2: [<p>Hilf</p>, <p>Helft</p>, <p>Hilfen Sie</p>],
+    finished2: [<p>Hilf</p>, <p>Helft</p>, <p>Helfen Sie</p>],
   },
   {
     text: "kommen",
@@ -93,7 +93,7 @@ const imageObj = [
   },
   {
     img: Image2,
-    description: "zu Besuch!",
+    description: " doch wieder zu Besuch!",
     answerIndex: 2,
     answerText: "Kommen Sie",
   },

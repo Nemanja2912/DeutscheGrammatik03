@@ -209,7 +209,7 @@ const ImageInteractiveScreen = ({ display, nextLevel }) => {
             className="after-done-text"
             style={{ opacity: showButton ? 1 : 0 }}
           >
-            Der imperativ hat diese drei Funktionen.
+            Der Imperativ hat diese drei Funktionen.
           </div>
 
           {showButton && (

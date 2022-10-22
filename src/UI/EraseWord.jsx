@@ -85,7 +85,7 @@ const EraseWord = ({
         setOpacity((prev) => {
           if (prev <= 0) return 0;
 
-          return prev - 0.025;
+          return prev - 0.03;
         });
       }
 

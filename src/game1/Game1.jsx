@@ -119,11 +119,11 @@ const imageObj = [
     id: 5,
     img: Image6a,
     nextImg: Image6b,
-    text: "Erzählen Sie!",
-    nextText: "Herr Kommissar, meine Nachbarn sind sehr laut.",
+    text: "Herr Kommissar, meine Nachbarn sind sehr laut.",
+    nextText: "Erzählen Sie!",
     answerIndex: 1,
-    audio: Audio6a,
-    nextAudio: Audio6b,
+    audio: Audio6b,
+    nextAudio: Audio6a,
     part2Answer: 3,
     halfCorrect: (
       <>
@@ -222,12 +222,13 @@ const Game1 = ({ nextLesson }) => {
       audioRef.current.play();
 
       setTimeout(() => {
-        let duration = audioRef.current.duration * 1000;
+        //1
 
         setShowImageLevel(1);
         e.target.remove();
 
-        setTimeout(() => {
+        const line1 = () => {
+          document.removeEventListener("click", fast1);
           setShowImageLevel(2);
 
           setTimeout(() => {
@@ -238,9 +239,11 @@ const Game1 = ({ nextLesson }) => {
             setTimeout(() => {
               setShowImageLevel(3);
               audioRef.current.play();
-              let duration = audioRef.current.duration * 1000;
 
-              setTimeout(() => {
+              //2
+
+              const line2 = () => {
+                document.removeEventListener("click", fast2);
                 setShowImageLevel(4);
 
                 setTimeout(() => {
@@ -270,11 +273,35 @@ const Game1 = ({ nextLesson }) => {
                     100,
                 ]);
 
-                if (index === 5) setActiveText(imageObj[index]?.text);
-              }, duration);
+                // if (index === 5) setActiveText(imageObj[index]?.text);
+              };
+
+              const timeout2 = setTimeout(line2, 5000);
+
+              const fast2 = () => {
+                // console.log("test321");
+
+                clearTimeout(timeout2);
+
+                line2();
+              };
+
+              document.addEventListener("click", fast2);
             }, 100);
           }, 500);
-        }, duration);
+        };
+
+        const timeout1 = setTimeout(line1, 5000);
+
+        const fast1 = () => {
+          // console.log("test123");
+
+          clearTimeout(timeout1);
+
+          line1();
+        };
+
+        document.addEventListener("click", fast1);
       }, 500);
     }, 0);
   };
@@ -521,7 +548,7 @@ const Game1 = ({ nextLesson }) => {
           if (part2BlueBox[imageObj[index].part2Answer][0]) {
             boxes.children[1].innerHTML = element.children[1].innerHTML;
 
-            console.log("test1");
+            // console.log("test1");
 
             element.style.bottom =
               initY +
@@ -543,7 +570,7 @@ const Game1 = ({ nextLesson }) => {
               boxes.children[0].getBoundingClientRect().bottom +
               "px";
 
-            console.log("test2");
+            // console.log("test2");
 
             setPart2BlueBox((prev) => {
               prev[imageObj[index].part2Answer][0] = true;
@@ -583,15 +610,31 @@ const Game1 = ({ nextLesson }) => {
             detailsBoxRef.current.getBoundingClientRect().height +
             "px";
 
-          setTimeout(() => {
+          const line1 = () => {
+            document.removeEventListener("click", fast1);
+
             setDetailsBox(false);
             setDisableMove(false);
             moveToDrop();
 
+            // console.log("1");
+
             setTimeout(() => {
               setPreventHelp(false);
             }, 1000);
-          }, 1500);
+          };
+
+          const timeout1 = setTimeout(line1, 10000);
+
+          const fast1 = () => {
+            clearTimeout(timeout1);
+
+            line1();
+          };
+
+          setTimeout(() => {
+            document.addEventListener("click", fast1);
+          }, 1000);
         }
       } else {
         element.style.transition = "0.25s linear";
@@ -685,7 +728,7 @@ const Game1 = ({ nextLesson }) => {
           }, 1250);
         }
       } else {
-        console.log(imageDone);
+        // console.log(imageDone);
         let index;
 
         for (let i = 0; i < imageDone.length; i++) {
@@ -965,8 +1008,8 @@ const Game1 = ({ nextLesson }) => {
                 <div className="drop-zone">
                   <div className="left">
                     <div className="text">
-                      <p>Informell</p>
-                      <p className="bold">Man sagt zur Person "du"</p>
+                      <p>informell</p>
+                      <p className="bold">Man sagt zur Person "du".</p>
                       <div className="title">
                         <div className="bottom-title">Plural</div>
                         <div className="top-title">Singular</div>
@@ -1005,8 +1048,8 @@ const Game1 = ({ nextLesson }) => {
                 <div className="drop-zone">
                   <div className="left">
                     <div className="text">
-                      <p>Formell</p>
-                      <p className="bold">Man sagt zur Person "Sie"</p>
+                      <p>formell</p>
+                      <p className="bold">Man sagt zur Person "Sie".</p>
                       <div className="title">
                         <div className="bottom-title">Plural</div>
                         <div className="top-title">Singular</div>
