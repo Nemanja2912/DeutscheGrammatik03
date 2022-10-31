@@ -94,7 +94,7 @@ const EraseWord = ({
           )
             return prev;
 
-          return prev + 1;
+          return prev + 2.5;
         });
       }
 
